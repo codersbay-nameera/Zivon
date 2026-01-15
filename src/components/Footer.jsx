@@ -130,7 +130,7 @@ const Footer = () => {
         <div className="pt-6 sm:pt-8">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 sm:gap-6">
             {/* Copyright */}
-            <div className="text-xs sm:text-sm text-primary">
+            <div className="text-sm sm:text-base text-primary">
               © {currentYear} AxonCorp International. All Rights Reserved.
             </div>
 
@@ -138,13 +138,13 @@ const Footer = () => {
             <div className="flex items-center gap-4 sm:gap-6">
               <Link 
                 to="#" 
-                className="text-xs sm:text-sm text-primary hover:text-secondary transition-colors"
+                className="text-sm sm:text-base text-primary hover:text-secondary transition-colors"
               >
                 Privacy
               </Link>
               <Link 
                 to="#" 
-                className="text-xs sm:text-sm text-primary hover:text-secondary transition-colors"
+                className="text-sm sm:text-base text-primary hover:text-secondary transition-colors"
               >
                 Terms
               </Link>

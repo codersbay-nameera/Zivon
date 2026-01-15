@@ -44,25 +44,27 @@ const Header = () => {
 
   return (
     <header className="sticky top-0 z-50 bg-white relative">
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-        <div className="flex items-center justify-between">
+      <nav className="w-full py-4">
+        <div className="flex items-center">
           {/* Logo */}
-          <Link 
-            to="/" 
-            className="text-xl sm:text-2xl tracking-[-0.02em]"
-            onClick={closeMenu}
-            style={{ color: '#000000' }}
-          >
-            <span className="font-bold">AXON</span><span className="font-normal">CORP</span>
-          </Link>
+          <div className="max-w-7xl ml-4 sm:ml-6 lg:ml-8 px-4 sm:px-6 lg:px-8">
+            <Link 
+              to="/" 
+              className="text-xl sm:text-2xl tracking-[-0.02em]"
+              onClick={closeMenu}
+              style={{ color: '#000000' }}
+            >
+              <span className="font-bold">AXON</span><span className="font-normal">CORP</span>
+            </Link>
+          </div>
           
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
+          {/* Desktop Navigation - Right Aligned */}
+          <div className="hidden md:flex items-center space-x-6 lg:space-x-8 ml-auto mr-4 sm:mr-6 lg:mr-8">
             <a 
               href="#capabilities" 
               onClick={(e) => handleSectionClick(e, 'capabilities')}
               className="text-sm lg:text-base hover:text-secondary transition-colors cursor-pointer"
-              style={{ color: '#000000' }}
+              style={{ color: '#000000', fontWeight: 500 }}
             >
               Capabilities
             </a>
@@ -70,7 +72,7 @@ const Header = () => {
               href="#products" 
               onClick={(e) => handleSectionClick(e, 'products')}
               className="text-sm lg:text-base hover:text-secondary transition-colors cursor-pointer"
-              style={{ color: '#000000' }}
+              style={{ color: '#000000', fontWeight: 500 }}
             >
               Products
             </a>
@@ -78,7 +80,7 @@ const Header = () => {
               href="#insights" 
               onClick={(e) => handleSectionClick(e, 'insights')}
               className="text-sm lg:text-base hover:text-secondary transition-colors cursor-pointer"
-              style={{ color: '#000000' }}
+              style={{ color: '#000000', fontWeight: 500 }}
             >
               Insights
             </a>
@@ -108,7 +110,7 @@ const Header = () => {
           
           {/* Hamburger Menu Button - Visible on mobile and tablet */}
           <button 
-            className="md:hidden p-2 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded"
+            className="md:hidden p-2 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded ml-auto mr-4 sm:mr-6 lg:mr-8"
             onClick={toggleMenu}
             aria-label="Toggle menu"
             aria-expanded={isMenuOpen}
@@ -137,7 +139,7 @@ const Header = () => {
               href="#capabilities" 
               onClick={(e) => handleSectionClick(e, 'capabilities')}
               className="text-base hover:text-secondary transition-colors py-2 border-b border-muted cursor-pointer"
-              style={{ color: '#000000' }}
+              style={{ color: '#000000', fontWeight: 500 }}
             >
               Capabilities
             </a>
@@ -145,7 +147,7 @@ const Header = () => {
               href="#products" 
               onClick={(e) => handleSectionClick(e, 'products')}
               className="text-base hover:text-secondary transition-colors py-2 border-b border-muted cursor-pointer"
-              style={{ color: '#000000' }}
+              style={{ color: '#000000', fontWeight: 500 }}
             >
               Products
             </a>
@@ -153,7 +155,7 @@ const Header = () => {
               href="#insights" 
               onClick={(e) => handleSectionClick(e, 'insights')}
               className="text-base hover:text-secondary transition-colors py-2 cursor-pointer"
-              style={{ color: '#000000' }}
+              style={{ color: '#000000', fontWeight: 500 }}
             >
               Insights
             </a>
@@ -166,9 +168,11 @@ const Header = () => {
             isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
           }`}
         >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <div className="w-full">
+            <div className="max-w-7xl ml-4 sm:ml-6 lg:ml-8 mr-4 sm:mr-6 lg:mr-8 px-4 sm:px-6 lg:px-8 py-6">
             <div className="text-base text-secondary">
               Menu content placeholder
+            </div>
             </div>
           </div>
         </div>

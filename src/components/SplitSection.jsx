@@ -1,5 +1,6 @@
 import React from 'react';
-import { FiGlobe, FiShare2 } from "react-icons/fi";
+import DraftingCompassIcon from '../assets/drafting-compass.svg';
+import GlobeIcon from '../assets/globe.svg';
 
 const SplitSection = () => {
   return (
@@ -18,7 +19,7 @@ const SplitSection = () => {
               onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#EAEAEA'}
               onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#F5F5F5'}
             >
-              <FiShare2 className="w-6 h-6" style={{ color: '#000000' }} />
+              <img src={DraftingCompassIcon} alt="Drafting Compass" className="w-6 h-6" style={{ color: '#000000' }} />
             </div>
           </div>
           
@@ -48,7 +49,7 @@ const SplitSection = () => {
               onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#EAEAEA'}
               onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#F5F5F5'}
             >
-              <FiGlobe className="w-6 h-6" style={{ color: '#000000' }} />
+              <img src={GlobeIcon} alt="Globe" className="w-6 h-6" style={{ color: '#000000' }} />
             </div>
           </div>
           

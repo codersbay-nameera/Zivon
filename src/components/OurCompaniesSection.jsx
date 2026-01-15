@@ -1,34 +1,36 @@
 import React from 'react';
 import { FiArrowRight } from "react-icons/fi";
-import { MdBusiness } from "react-icons/md";
+import BuildingIcon from '../assets/building.svg';
+import LaptopIcon from '../assets/laptop.svg';
 
 const OurCompaniesSection = () => {
   const companies = [
     {
-      icon: MdBusiness,
+      icon: BuildingIcon,
       category: "Enterprise Solutions",
       title: "Axon Systems",
-      description: "Delivering large-scale infrastructure and mission-critical software architecture for global enterprises and government bodies."
+      description: "Delivering large-scale infrastructure and mission-critical software architecture for global enterprises and government bodies.",
+      isSvgIcon: true
     },
     {
-      icon: 'laptop_windows',
+      icon: LaptopIcon,
       category: "Consumer Technology",
       title: "Nova Labs",
       description: "Creating intuitive consumer applications and smart devices that integrate seamlessly into everyday life.",
-      isMaterialIcon: true
+      isSvgIcon: true
     }
   ];
 
   return (
     <section 
-      className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16 xl:py-20" 
+      className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-12 xl:py-16" 
       style={{ 
         background: 'linear-gradient(to bottom, #FFFFFF 0%, #F8FAFC 100%)'
       }}
     >
       {/* Section Title with Divider */}
       <div className="mb-8 sm:mb-12 lg:mb-16">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-primary mb-4 sm:mb-6 tracking-[-0.02em]">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-primary mb-4 sm:mb-6 tracking-[-0.02em]">
           Our Companies
         </h2>
         <div className="border-t border-gray-100"></div>
@@ -51,7 +53,9 @@ const OurCompaniesSection = () => {
                   onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#EAEAEA'}
                   onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#F5F5F5'}
                 >
-                  {company.isMaterialIcon ? (
+                  {company.isSvgIcon ? (
+                    <img src={IconComponent} alt={company.title} className="w-6 h-6" />
+                  ) : company.isMaterialIcon ? (
                     <span className="material-symbols-outlined" style={{ color: '#000000', fontSize: '24px' }}>
                       {IconComponent}
                     </span>
@@ -64,8 +68,8 @@ const OurCompaniesSection = () => {
               {/* Category Badge */}
               <div className="mb-3 sm:mb-4">
                 <span 
-                  className="inline-block px-3 py-1 rounded-full text-xs sm:text-sm uppercase tracking-wider text-secondary transition-all duration-200"
-                  style={{ backgroundColor: '#F5F5F5' }}
+                  className="inline-block px-3 py-1 rounded-full text-xs sm:text-sm tracking-wider transition-all duration-200"
+                  style={{ backgroundColor: '#F5F5F5', color: '#000000' }}
                   onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#EAEAEA'}
                   onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#F5F5F5'}
                 >
@@ -89,7 +93,7 @@ const OurCompaniesSection = () => {
                 className="inline-flex items-center gap-2 text-sm sm:text-base text-primary hover:underline transition-all duration-200 group mt-auto"
               >
                 <span>Visit Site</span>
-                <FiArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
+                <FiArrowRight className="w-4 h-4 transition-transform duration-200" style={{ transform: 'rotate(-45deg)' }} />
               </a>
             </div>
           );
