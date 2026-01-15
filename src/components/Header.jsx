@@ -47,10 +47,10 @@ const Header = () => {
       <nav className="w-full py-4">
         <div className="flex items-center">
           {/* Logo */}
-          <div className="max-w-7xl ml-4 sm:ml-6 lg:ml-8 px-4 sm:px-6 lg:px-8">
+          <div className="ml-4 sm:ml-6 lg:ml-8 px-2 sm:px-4 lg:px-8">
             <Link 
               to="/" 
-              className="text-xl sm:text-2xl tracking-[-0.02em]"
+              className="text-lg sm:text-xl lg:text-2xl tracking-[-0.02em]"
               onClick={closeMenu}
               style={{ color: '#000000' }}
             >

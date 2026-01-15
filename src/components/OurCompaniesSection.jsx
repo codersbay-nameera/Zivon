@@ -23,35 +23,34 @@ const OurCompaniesSection = () => {
 
   return (
     <section 
-      className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-12 xl:py-16" 
+      className="w-full py-6 sm:py-8 lg:py-12 xl:py-16" 
       style={{ 
-        background: 'linear-gradient(to bottom, #FFFFFF 0%, #F8FAFC 100%)'
+        backgroundColor: '#F8FAFC'
       }}
     >
-      {/* Section Title with Divider */}
-      <div className="mb-8 sm:mb-12 lg:mb-16">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-primary mb-4 sm:mb-6 tracking-[-0.02em]">
-          Our Companies
-        </h2>
-        <div className="border-t border-gray-100"></div>
-      </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Title with Divider */}
+        <div className="mb-8 sm:mb-12 lg:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-primary mb-4 sm:mb-6 tracking-[-0.02em]">
+            Our Companies
+          </h2>
+          <div className="border-t border-gray-100"></div>
+        </div>
 
-      {/* 2-Column Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-12">
+        {/* 2-Column Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-12">
         {companies.map((company, index) => {
           const IconComponent = company.icon;
           return (
             <div 
               key={index} 
-              className="bg-white rounded-lg p-6 sm:p-8 shadow-sm hover:shadow-md transition-shadow duration-200 flex flex-col"
+              className="bg-white rounded-lg p-6 sm:p-8 shadow-sm flex flex-col"
             >
               {/* Icon at top-left */}
               <div className="mb-4 sm:mb-5">
                 <div 
-                  className="w-10 h-10 rounded-[10px] flex items-center justify-center transition-all duration-200"
-                  style={{ backgroundColor: '#F5F5F5' }}
-                  onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#EAEAEA'}
-                  onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#F5F5F5'}
+                  className="w-10 h-10 flex items-center justify-center"
+                  style={{ backgroundColor: '#F1F5F9' }}
                 >
                   {company.isSvgIcon ? (
                     <img src={IconComponent} alt={company.title} className="w-6 h-6" />
@@ -68,10 +67,8 @@ const OurCompaniesSection = () => {
               {/* Category Badge */}
               <div className="mb-3 sm:mb-4">
                 <span 
-                  className="inline-block px-3 py-1 rounded-full text-xs sm:text-sm tracking-wider transition-all duration-200"
-                  style={{ backgroundColor: '#F5F5F5', color: '#000000' }}
-                  onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#EAEAEA'}
-                  onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#F5F5F5'}
+                  className="inline-block px-3 py-1 rounded-full text-xs sm:text-sm tracking-wider"
+                  style={{ backgroundColor: '#F1F5F9', color: '#000000' }}
                 >
                   {company.category}
                 </span>
@@ -83,21 +80,22 @@ const OurCompaniesSection = () => {
               </h3>
 
               {/* Description */}
-              <p className="text-base sm:text-lg text-secondary mb-4 sm:mb-5 leading-relaxed">
+              <p className="text-base sm:text-lg mb-4 sm:mb-5 leading-relaxed" style={{ color: '#64748B', fontWeight: 400 }}>
                 {company.description}
               </p>
 
               {/* Visit Site Link */}
               <a 
                 href="#" 
-                className="inline-flex items-center gap-2 text-sm sm:text-base text-primary hover:underline transition-all duration-200 group mt-auto"
+                className="inline-flex items-center gap-2 text-sm sm:text-base text-primary hover:underline transition-all duration-200 mt-auto group"
               >
                 <span>Visit Site</span>
-                <FiArrowRight className="w-4 h-4 transition-transform duration-200" style={{ transform: 'rotate(-45deg)' }} />
+                <FiArrowRight className="w-4 h-4 transition-all duration-200 opacity-0 group-hover:opacity-100" style={{ transform: 'rotate(-45deg)' }} />
               </a>
             </div>
           );
         })}
+        </div>
       </div>
     </section>
   );

@@ -1,21 +1,27 @@
 import React from 'react';
+import SentinelAiImage from '../assets/ourProducts/SentinelAi.jpg';
+import NexusCoreImage from '../assets/ourProducts/NexusCore.jpg';
+import QuasarDataImage from '../assets/ourProducts/QuasarData.jpg';
 
 const OurProductsSection = () => {
   const products = [
     {
       category: "Fintech",
       title: "Sentinel AI",
-      description: "Autonomous threat detection and response system for financial networks, reducing risk by 40%."
+      description: "Autonomous threat detection and response system for financial networks, reducing risk by 40%.",
+      image: SentinelAiImage
     },
     {
       category: "Logistics",
       title: "Nexus Core",
-      description: "The backbone for global supply chain transparency, providing real-time visibility across continents."
+      description: "The backbone for global supply chain transparency, providing real-time visibility across continents.",
+      image: NexusCoreImage
     },
     {
       category: "Analytics",
       title: "Quasar Data",
-      description: "Enterprise analytics with predictive modeling capabilities to forecast market trends."
+      description: "Enterprise analytics with predictive modeling capabilities to forecast market trends.",
+      image: QuasarDataImage
     },
     {
       category: "Healthcare",
@@ -49,27 +55,35 @@ const OurProductsSection = () => {
         <p className="text-base sm:text-lg text-secondary mb-4 sm:mb-6 leading-relaxed">
           Proprietary platforms driving global efficiency.
         </p>
-        <div className="border-t border-gray-100"></div>
       </div>
 
       {/* Horizontal Slider Container */}
       <div className="overflow-x-auto -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 scrollbar-hide scroll-smooth">
-        <div className="flex gap-6 sm:gap-8 lg:gap-12 pb-4" style={{ minWidth: 'max-content' }}>
+        <div className="flex gap-4 sm:gap-5 lg:gap-6 pb-4" style={{ minWidth: 'max-content' }}>
           {products.map((product, index) => (
             <div 
               key={index} 
-              className="flex-shrink-0 w-[280px] sm:w-[320px] lg:w-[360px] flex flex-col"
+              className="flex-shrink-0 w-[280px] sm:w-[360px] md:w-[400px] lg:w-[448px] flex flex-col"
             >
-              {/* Blank Image Container with Category Badge */}
+              {/* Image Container with Category Badge */}
               <div className="relative mb-4 sm:mb-5">
-                {/* Blank dark image container */}
-                <div 
-                  className="w-full h-[200px] sm:h-[220px] lg:h-[240px] rounded-lg"
-                  style={{ backgroundColor: '#0A0A0A' }}
-                ></div>
+                {/* Product Image */}
+                {product.image ? (
+                  <img 
+                    src={product.image} 
+                    alt={product.title}
+                    className="w-full h-[200px] sm:h-[240px] md:h-[280px] lg:h-[360px] object-cover"
+                  />
+                ) : (
+                  <div 
+                    className="w-full h-[200px] sm:h-[240px] md:h-[280px] lg:h-[360px]"
+                    style={{ backgroundColor: '#0A0A0A' }}
+                  ></div>
+                )}
                 {/* Category Badge at top-right */}
                 <div 
-                  className="absolute top-3 sm:top-4 right-3 sm:right-4 px-3 py-1 bg-white rounded text-xs sm:text-sm font-medium text-primary"
+                  className="absolute top-3 sm:top-4 right-3 sm:right-4 px-3 py-1 rounded text-xs sm:text-sm"
+                  style={{ backgroundColor: '#FFFFFF', color: '#64748B', fontWeight: 400 }}
                 >
                   {product.category}
                 </div>
@@ -88,8 +102,6 @@ const OurProductsSection = () => {
           ))}
         </div>
       </div>
-      {/* Horizontal Divider */}
-      <div className="border-t border-gray-100 mt-8 sm:mt-10 lg:mt-12"></div>
     </section>
   );
 };

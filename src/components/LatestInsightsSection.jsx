@@ -1,25 +1,31 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import TheFutureImage from '../assets/latesInsight/TheFuture.jpg';
+import ScalingTeamImage from '../assets/latesInsight/ScalingTeam.jpg';
+import ZeroTrustImage from '../assets/latesInsight/ZeroTrust.jpg';
 
 const LatestInsightsSection = () => {
   const insights = [
     {
       date: "OCT 12 2025",
       category: "TECHNOLOGY",
-      title: "The Future of AI in Enterprise Solutions",
-      description: "Decentralized processing redefining latency standards for global finance."
+      title: "The Future of Edge Computing in Enterprise",
+      description: "Decentralized processing redefining latency standards for global finance.",
+      image: TheFutureImage
     },
     {
-      date: "March 10, 2024",
-      category: "Innovation",
-      title: "Building Scalable Cloud Infrastructure",
-      description: "Best practices for maintaining engineering culture and velocity."
+      date: "OCT 12 2025",
+      category: "TECHNOLOGY",
+      title: "Scaling Teams in a Remote-First Era",
+      description: "Best practices for maintaining engineering culture and velocity.",
+      image: ScalingTeamImage
     },
     {
-      date: "March 5, 2024",
-      category: "Strategy",
-      title: "Digital Transformation Roadmap",
-      description: "Why perimeter security is failing and how identity-based approaches succeed."
+      date: "OCT 12 2025",
+      category: "TECHNOLOGY",
+      title: "Zero Trust Architecture Explained",
+      description: "Why perimeter security is failing and how identity-based approaches succeed.",
+      image: ZeroTrustImage
     }
   ];
 
@@ -42,16 +48,24 @@ const LatestInsightsSection = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 lg:gap-12">
         {insights.map((insight, index) => (
           <div key={index} className="flex flex-col">
-            {/* Blank Image Container */}
+            {/* Image Container */}
             <div className="mb-4 sm:mb-5">
-              <div 
-                className="w-full h-[200px] sm:h-[220px] lg:h-[240px] rounded-lg"
-                style={{ backgroundColor: '#0A0A0A' }}
-              ></div>
+              {insight.image ? (
+                <img 
+                  src={insight.image} 
+                  alt={insight.title}
+                  className="w-full h-[200px] sm:h-[220px] lg:h-[240px] object-cover"
+                />
+              ) : (
+                <div 
+                  className="w-full h-[200px] sm:h-[220px] lg:h-[240px] rounded-lg"
+                  style={{ backgroundColor: '#0A0A0A' }}
+                ></div>
+              )}
             </div>
 
             {/* Meta Info: Date • Category */}
-            <div className="text-xs sm:text-sm text-secondary mb-3 sm:mb-4">
+            <div className="mb-3 sm:mb-4" style={{ color: '#64748B', fontWeight: 500, fontSize: 'clamp(12px, 3vw, 16px)' }}>
               {insight.date} • {insight.category}
             </div>
 
@@ -61,7 +75,7 @@ const LatestInsightsSection = () => {
             </h3>
 
             {/* Description */}
-            <p className="text-base sm:text-lg text-secondary leading-relaxed">
+            <p className="text-base sm:text-lg leading-relaxed" style={{ color: '#64748B', fontWeight: 400 }}>
               {insight.description}
             </p>
           </div>

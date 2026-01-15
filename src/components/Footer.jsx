@@ -18,7 +18,7 @@ const Footer = () => {
             >
               <span className="font-bold">AXON</span><span className="font-normal">CORP</span>
             </Link>
-            <p className="text-sm sm:text-base text-primary leading-relaxed">
+            <p className="leading-relaxed" style={{ color: '#020617', fontWeight: 400, fontSize: 'clamp(16px, 4vw, 20px)' }}>
               Redefining what's possible in digital infrastructure.
             </p>
           </div>
@@ -34,7 +34,8 @@ const Footer = () => {
                 <li>
                   <Link 
                     to="#" 
-                    className="text-sm sm:text-base text-primary hover:text-secondary transition-colors"
+                    className="text-sm sm:text-base text-primary hover:underline transition-all"
+                    style={{ color: '#000000' }}
                   >
                     About
                   </Link>
@@ -42,7 +43,8 @@ const Footer = () => {
                 <li>
                   <Link 
                     to="#" 
-                    className="text-sm sm:text-base text-primary hover:text-secondary transition-colors"
+                    className="text-sm sm:text-base text-primary hover:underline transition-all"
+                    style={{ color: '#000000' }}
                   >
                     Careers
                   </Link>
@@ -50,7 +52,8 @@ const Footer = () => {
                 <li>
                   <Link 
                     to="#" 
-                    className="text-sm sm:text-base text-primary hover:text-secondary transition-colors"
+                    className="text-sm sm:text-base text-primary hover:underline transition-all"
+                    style={{ color: '#000000' }}
                   >
                     Press
                   </Link>
@@ -67,7 +70,8 @@ const Footer = () => {
                 <li>
                   <Link 
                     to="#" 
-                    className="text-sm sm:text-base text-primary hover:text-secondary transition-colors"
+                    className="text-sm sm:text-base text-primary hover:underline transition-all"
+                    style={{ color: '#000000' }}
                   >
                     Engineering
                   </Link>
@@ -75,7 +79,8 @@ const Footer = () => {
                 <li>
                   <Link 
                     to="#" 
-                    className="text-sm sm:text-base text-primary hover:text-secondary transition-colors"
+                    className="text-sm sm:text-base text-primary hover:underline transition-all"
+                    style={{ color: '#000000' }}
                   >
                     Cloud Infrastructure
                   </Link>
@@ -83,7 +88,8 @@ const Footer = () => {
                 <li>
                   <Link 
                     to="#" 
-                    className="text-sm sm:text-base text-primary hover:text-secondary transition-colors"
+                    className="text-sm sm:text-base text-primary hover:underline transition-all"
+                    style={{ color: '#000000' }}
                   >
                     Data Intelligence
                   </Link>
@@ -100,7 +106,8 @@ const Footer = () => {
                 <li>
                   <Link 
                     to="#" 
-                    className="text-sm sm:text-base text-primary hover:text-secondary transition-colors"
+                    className="text-sm sm:text-base text-primary hover:underline transition-all"
+                    style={{ color: '#000000' }}
                   >
                     LinkedIn
                   </Link>
@@ -108,7 +115,8 @@ const Footer = () => {
                 <li>
                   <Link 
                     to="#" 
-                    className="text-sm sm:text-base text-primary hover:text-secondary transition-colors"
+                    className="text-sm sm:text-base text-primary hover:underline transition-all"
+                    style={{ color: '#000000' }}
                   >
                     Twitter / X
                   </Link>
@@ -116,7 +124,8 @@ const Footer = () => {
                 <li>
                   <Link 
                     to="#" 
-                    className="text-sm sm:text-base text-primary hover:text-secondary transition-colors"
+                    className="text-sm sm:text-base text-primary hover:underline transition-all"
+                    style={{ color: '#000000' }}
                   >
                     Contact Us
                   </Link>
@@ -130,7 +139,7 @@ const Footer = () => {
         <div className="pt-6 sm:pt-8">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 sm:gap-6">
             {/* Copyright */}
-            <div className="text-sm sm:text-base text-primary">
+            <div style={{ fontSize: 'clamp(14px, 3.5vw, 20px)', fontWeight: 400, color: '#020617' }}>
               © {currentYear} AxonCorp International. All Rights Reserved.
             </div>
 
@@ -138,13 +147,15 @@ const Footer = () => {
             <div className="flex items-center gap-4 sm:gap-6">
               <Link 
                 to="#" 
-                className="text-sm sm:text-base text-primary hover:text-secondary transition-colors"
+                className="text-sm sm:text-base text-primary hover:underline transition-all"
+                style={{ color: '#000000' }}
               >
                 Privacy
               </Link>
               <Link 
                 to="#" 
-                className="text-sm sm:text-base text-primary hover:text-secondary transition-colors"
+                className="text-sm sm:text-base text-primary hover:underline transition-all"
+                style={{ color: '#000000' }}
               >
                 Terms
               </Link>

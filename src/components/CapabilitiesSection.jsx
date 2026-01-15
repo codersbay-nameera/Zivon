@@ -48,10 +48,8 @@ const CapabilitiesSection = () => {
               {/* Icon Container */}
               <div className="mb-3 sm:mb-4">
                 <div 
-                  className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200"
-                  style={{ backgroundColor: '#F5F5F5' }}
-                  onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#EAEAEA'}
-                  onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#F5F5F5'}
+                  className="w-10 h-10 rounded-full flex items-center justify-center"
+                  style={{ backgroundColor: '#F1F5F9' }}
                 >
                   {capability.isSvgIcon ? (
                     <img src={IconComponent} alt={capability.title} className="w-6 h-6" />
@@ -107,10 +105,10 @@ const CapabilitiesSection = () => {
               {/* Learn More Link */}
               <a 
                 href="#" 
-                className="inline-flex items-center gap-2 text-sm sm:text-base text-primary hover:underline transition-all duration-200 group mt-auto"
+                className="inline-flex items-center gap-2 text-sm sm:text-base text-primary hover:underline transition-all duration-200 mt-auto group"
               >
                 <span>Learn More</span>
-                <FiArrowRight className="w-4 h-4 transition-transform duration-200" style={{ transform: 'rotate(-45deg)' }} />
+                <FiArrowRight className="w-4 h-4 transition-all duration-200 opacity-0 group-hover:opacity-100" style={{ transform: 'rotate(-45deg)' }} />
               </a>
             </div>
           );
