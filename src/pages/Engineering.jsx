@@ -1,6 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
+import { RiReactjsLine, RiFolder6Fill } from "react-icons/ri";
+import { FaDatabase, FaAws } from "react-icons/fa";
+import { MdCloudDone } from "react-icons/md";
 
 const Engineering = () => {
+  const [isHovered, setIsHovered] = useState(false);
+  const marqueeRef = useRef(null);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -78,17 +84,17 @@ const Engineering = () => {
             className="text-base sm:text-lg lg:text-xl max-w-3xl leading-relaxed"
             style={{ color: '#64748B', fontWeight: 400 }}
           >
-            Delivering a comprehensive suite of software development services, from enterprise-grade systems to high-performance user experiences.
+            Delivering a comprehensive suite of software development services,<br></br> from enterprise-grade systems to high-performance user <br></br>experiences.
           </p>
         </div>
       </section>
 
       {/* Capabilities Cards Section */}
       <section className="w-full bg-white relative">
-        <div className="max-w-7xl mx-auto pl-6 sm:pl-8 lg:pl-12 pr-4 sm:pr-6 lg:pr-8 py-6 sm:py-8 lg:py-10 xl:py-12 relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 py-6 sm:py-8 lg:py-10 xl:py-12 relative">
           {/* Full-height vertical dividers */}
           <div 
-            className="hidden md:block absolute top-0 bottom-0 border-r border-gray-100"
+            className="hidden lg:block absolute top-0 bottom-0 border-r border-gray-100"
             style={{ 
               left: 'calc(33.333% + 0.5rem)',
               top: '0',
@@ -97,7 +103,7 @@ const Engineering = () => {
             }}
           ></div>
           <div 
-            className="hidden md:block absolute top-0 bottom-0 border-r border-gray-100"
+            className="hidden lg:block absolute top-0 bottom-0 border-r border-gray-100"
             style={{ 
               left: 'calc(66.666% + 0.5rem)',
               top: '0',
@@ -106,11 +112,11 @@ const Engineering = () => {
             }}
           ></div>
           {/* Capabilities Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10 lg:gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 xl:gap-12">
           {capabilities.map((capability, index) => (
             <div 
               key={index} 
-              className={`flex flex-col md:pr-8 lg:pr-10 xl:pr-12 ${index > 0 ? 'md:pl-8 lg:pl-10 xl:pl-12' : ''}`}
+              className={`flex flex-col ${index > 0 && index % 3 !== 0 ? 'lg:pl-6 xl:pl-8' : ''} ${index > 0 && index % 3 === 0 ? 'lg:pl-0' : ''}`}
             >
               {/* Index Number */}
               <div 
@@ -170,20 +176,20 @@ const Engineering = () => {
               </p>
 
               {/* Metadata Boxes */}
-              <div className="space-y-2 sm:space-y-3 mt-auto">
+              <div className="space-y-2 sm:space-y-3 mt-4 sm:mt-auto">
                 {/* Focus Box */}
                 <div 
-                  className="border p-4 sm:p-5 bg-white"
+                  className="border p-3 sm:p-4 md:p-5 bg-white"
                   style={{ borderColor: '#E2E8F0', borderRadius: '16px' }}
                 >
                   <div 
-                    className="text-xs sm:text-sm uppercase tracking-wide mb-2"
+                    className="text-xs sm:text-sm uppercase tracking-wide mb-1 sm:mb-2"
                     style={{ color: '#64748B', fontWeight: 600 }}
                   >
                     Focus
                   </div>
                   <div 
-                    className="text-base sm:text-lg font-bold"
+                    className="text-sm sm:text-base md:text-lg font-bold"
                     style={{ color: '#000000' }}
                   >
                     {capability.focus}
@@ -192,17 +198,17 @@ const Engineering = () => {
 
                 {/* Metric Box */}
                 <div 
-                  className="border p-4 sm:p-5 bg-white"
+                  className="border p-3 sm:p-4 md:p-5 bg-white"
                   style={{ borderColor: '#E2E8F0', borderRadius: '16px' }}
                 >
                   <div 
-                    className="text-xs sm:text-sm uppercase tracking-wide mb-2"
+                    className="text-xs sm:text-sm uppercase tracking-wide mb-1 sm:mb-2"
                     style={{ color: '#64748B', fontWeight: 600 }}
                   >
                     Metric
                   </div>
                   <div 
-                    className="text-base sm:text-lg font-bold"
+                    className="text-sm sm:text-base md:text-lg font-bold"
                     style={{ color: '#000000' }}
                   >
                     {capability.metric}
@@ -303,37 +309,37 @@ const Engineering = () => {
 
           {/* Section Heading */}
           <h2 
-            className="text-3xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-center mb-12 sm:mb-16 lg:mb-20 tracking-[-0.02em]"
+            className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-12 sm:mb-16 lg:mb-20 tracking-[-0.02em]"
             style={{ color: '#000000' }}
           >
             Built with Industry Standards
           </h2>
 
           {/* Marquee Container */}
-          <div className="overflow-hidden relative" style={{ width: '100%' }}>
+          <div 
+            ref={marqueeRef}
+            className={`relative scrollbar-hide ${isHovered ? 'overflow-x-auto' : 'overflow-hidden'}`}
+            style={{ width: '100%' }}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+          >
             <div 
               className="flex"
               style={{
                 display: 'flex',
                 width: 'max-content',
-                gap: '24px',
-                animation: 'marquee 40s linear infinite'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.animationPlayState = 'paused';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.animationPlayState = 'running';
+                gap: 'clamp(16px, 2vw, 24px)',
+                animation: isHovered ? 'none' : 'marquee 40s linear infinite'
               }}
             >
               {/* First set of tech items */}
-              {['React', 'Rust', 'Go', 'Node.js', 'PostgreSQL', 'MongoDB', 'AWS', 'GCP', 'Redis', 'GraphQL'].map((tech, index) => (
+              {['React', 'Rust/Go', 'Node.js', 'PostgreSQL', 'MongoDB', 'AWS', 'GCP', 'Redis', 'GraphQL'].map((tech, index) => (
                 <div key={`first-${index}`} className="flex-shrink-0">
                   <TechCard name={tech} />
                 </div>
               ))}
               {/* Duplicate for seamless loop */}
-              {['React', 'Rust', 'Go', 'Node.js', 'PostgreSQL', 'MongoDB', 'AWS', 'GCP', 'Redis', 'GraphQL'].map((tech, index) => (
+              {['React', 'Rust/Go', 'Node.js', 'PostgreSQL', 'MongoDB', 'AWS', 'GCP', 'Redis', 'GraphQL'].map((tech, index) => (
                 <div key={`second-${index}`} className="flex-shrink-0">
                   <TechCard name={tech} />
                 </div>
@@ -362,11 +368,11 @@ const Engineering = () => {
 const TechCard = ({ name }) => {
   return (
     <div 
-      className="bg-white relative"
+      className="bg-white relative flex-shrink-0"
       style={{ 
-        width: '180px',
-        height: '120px',
-        padding: '32px',
+        width: 'clamp(140px, 15vw, 180px)',
+        height: 'clamp(100px, 12vw, 120px)',
+        padding: 'clamp(20px, 2.5vw, 32px)',
         borderRadius: '16px',
         borderWidth: '1px',
         borderStyle: 'solid',
@@ -374,24 +380,76 @@ const TechCard = ({ name }) => {
       }}
     >
       {/* Tech Icon - Top Left Corner */}
-      <span 
-        className="material-symbols-outlined absolute"
-        style={{ 
-          color: '#000000', 
-          fontSize: '28px',
-          top: '28px',
-          left: '32px'
-        }}
-      >
-        {getTechIcon(name)}
-      </span>
+      {name === 'React' ? (
+        <RiReactjsLine 
+          className="absolute"
+          style={{ 
+            color: '#000000', 
+            fontSize: 'clamp(20px, 2.5vw, 28px)',
+            top: 'clamp(20px, 2.5vw, 28px)',
+            left: 'clamp(20px, 2.5vw, 32px)'
+          }}
+        />
+      ) : name === 'Rust/Go' ? (
+        <RiFolder6Fill 
+          className="absolute"
+          style={{ 
+            color: '#000000', 
+            fontSize: 'clamp(20px, 2.5vw, 28px)',
+            top: 'clamp(20px, 2.5vw, 28px)',
+            left: 'clamp(20px, 2.5vw, 32px)'
+          }}
+        />
+      ) : name === 'PostgreSQL' ? (
+        <FaDatabase 
+          className="absolute"
+          style={{ 
+            color: '#000000', 
+            fontSize: 'clamp(20px, 2.5vw, 28px)',
+            top: 'clamp(20px, 2.5vw, 28px)',
+            left: 'clamp(20px, 2.5vw, 32px)'
+          }}
+        />
+      ) : name === 'AWS' ? (
+        <FaAws 
+          className="absolute"
+          style={{ 
+            color: '#000000', 
+            fontSize: 'clamp(20px, 2.5vw, 28px)',
+            top: 'clamp(20px, 2.5vw, 28px)',
+            left: 'clamp(20px, 2.5vw, 32px)'
+          }}
+        />
+      ) : name === 'GCP' ? (
+        <MdCloudDone 
+          className="absolute"
+          style={{ 
+            color: '#000000', 
+            fontSize: 'clamp(20px, 2.5vw, 28px)',
+            top: 'clamp(20px, 2.5vw, 28px)',
+            left: 'clamp(20px, 2.5vw, 32px)'
+          }}
+        />
+      ) : (
+        <span 
+          className="material-symbols-outlined absolute"
+          style={{ 
+            color: '#000000', 
+            fontSize: 'clamp(20px, 2.5vw, 28px)',
+            top: 'clamp(20px, 2.5vw, 28px)',
+            left: 'clamp(20px, 2.5vw, 32px)'
+          }}
+        >
+          {getTechIcon(name)}
+        </span>
+      )}
       {/* Tech Name - Below Icon, Left Aligned */}
       <div 
-        className="text-sm sm:text-base font-bold absolute"
+        className="text-xs sm:text-sm font-bold absolute"
         style={{ 
           color: '#000000',
-          top: '72px',
-          left: '32px'
+          top: 'clamp(55px, 7vw, 72px)',
+          left: 'clamp(20px, 2.5vw, 32px)'
         }}
       >
         {name}
