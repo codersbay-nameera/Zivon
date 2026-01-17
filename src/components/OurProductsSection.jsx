@@ -1,25 +1,41 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import SentinelAiImage from '../assets/ourProducts/SentinelAi.jpg';
 import NexusCoreImage from '../assets/ourProducts/NexusCore.jpg';
 import QuasarDataImage from '../assets/ourProducts/QuasarData.jpg';
 
 const OurProductsSection = () => {
+  const navigate = useNavigate();
+
+  const handleProductClick = (e, productSlug) => {
+    // Allow default behavior for Ctrl+Click, Middle-click, or Right-click (new tab)
+    if (e.ctrlKey || e.metaKey || e.button === 1 || e.button === 2) {
+      return;
+    }
+    // Prevent default for normal clicks and use React Router navigation
+    e.preventDefault();
+    navigate(`/product/${productSlug}`);
+  };
+
   const products = [
     {
       category: "Fintech",
       title: "Sentinel AI",
+      slug: "sentinel-ai",
       description: "Autonomous threat detection and response system for financial networks, reducing risk by 40%.",
       image: SentinelAiImage
     },
     {
       category: "Logistics",
       title: "Nexus Core",
+      slug: "nexus-core",
       description: "The backbone for global supply chain transparency, providing real-time visibility across continents.",
       image: NexusCoreImage
     },
     {
       category: "Analytics",
       title: "Quasar Data",
+      slug: "quasar-data",
       description: "Enterprise analytics with predictive modeling capabilities to forecast market trends.",
       image: QuasarDataImage
     },
@@ -61,9 +77,11 @@ const OurProductsSection = () => {
       <div className="overflow-x-auto -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 scrollbar-hide scroll-smooth">
         <div className="flex gap-6 sm:gap-8 lg:gap-12 pb-4" style={{ minWidth: 'max-content' }}>
           {products.map((product, index) => (
-            <div 
-              key={index} 
-              className="flex-shrink-0 w-[440px] sm:w-[460px] lg:w-[448px] flex flex-col"
+            <a
+              key={index}
+              href={`/product/${product.slug}`}
+              onClick={(e) => handleProductClick(e, product.slug)}
+              className="flex-shrink-0 w-[440px] sm:w-[460px] lg:w-[448px] flex flex-col cursor-pointer"
             >
               {/* Image Container with Category Badge */}
               <div className="relative mb-4 sm:mb-5">
@@ -98,7 +116,7 @@ const OurProductsSection = () => {
               <p className="text-base sm:text-lg text-secondary leading-relaxed">
                 {product.description}
               </p>
-            </div>
+            </a>
           ))}
         </div>
       </div>

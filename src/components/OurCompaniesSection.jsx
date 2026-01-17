@@ -1,9 +1,21 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FiArrowRight } from "react-icons/fi";
 import BuildingIcon from '../assets/building.svg';
 import LaptopIcon from '../assets/laptop.svg';
 
 const OurCompaniesSection = () => {
+  const navigate = useNavigate();
+
+  const handleLinkClick = (e, href) => {
+    // Allow default behavior for Ctrl+Click, Middle-click, or Right-click (new tab)
+    if (e.ctrlKey || e.metaKey || e.button === 1 || e.button === 2) {
+      return;
+    }
+    // Prevent default for normal clicks and use React Router navigation
+    e.preventDefault();
+    navigate(href);
+  };
   const companies = [
     {
       icon: BuildingIcon,
@@ -86,7 +98,8 @@ const OurCompaniesSection = () => {
 
               {/* Visit Site Link */}
               <a 
-                href="#" 
+                href="/company"
+                onClick={(e) => handleLinkClick(e, '/company')}
                 className="inline-flex items-center gap-2 text-sm sm:text-base text-primary hover:underline transition-all duration-200 mt-auto group"
               >
                 <span>Learn More</span>

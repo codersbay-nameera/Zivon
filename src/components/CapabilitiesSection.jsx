@@ -1,11 +1,22 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { FiArrowRight } from "react-icons/fi";
 import DraftingCompassIcon from '../assets/drafting-compass.svg';
 import CloudIcon from '../assets/cloud.svg';
 import BrainCircuitIcon from '../assets/brain-circuit.svg';
 
 const CapabilitiesSection = () => {
+  const navigate = useNavigate();
+
+  const handleLinkClick = (e, href) => {
+    // Allow default behavior for Ctrl+Click, Middle-click, or Right-click (new tab)
+    if (e.ctrlKey || e.metaKey || e.button === 1 || e.button === 2) {
+      return;
+    }
+    // Prevent default for normal clicks and use React Router navigation
+    e.preventDefault();
+    navigate(href);
+  };
   const capabilities = [
     {
       icon: DraftingCompassIcon,
@@ -111,13 +122,14 @@ const CapabilitiesSection = () => {
               )}
 
               {/* Learn More Link */}
-              <Link 
-                to={capability.link}
+              <a 
+                href={capability.link}
+                onClick={(e) => handleLinkClick(e, capability.link)}
                 className="inline-flex items-center gap-2 text-sm sm:text-base text-primary hover:underline transition-all duration-200 mt-auto group"
               >
                 <span>Learn More</span>
                 <FiArrowRight className="w-4 h-4 transition-all duration-200 opacity-0 group-hover:opacity-100" style={{ transform: 'rotate(-45deg)' }} />
-              </Link>
+              </a>
             </div>
           );
         })}

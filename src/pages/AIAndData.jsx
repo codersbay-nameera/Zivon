@@ -48,7 +48,7 @@ const AIAndData = () => {
         </div>
 
         {/* Capabilities Content Area */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 relative">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 relative items-start">
           {/* Full-height vertical divider - extends from horizontal divider */}
           <div 
             className="hidden lg:block absolute border-l border-gray-100"
@@ -90,27 +90,46 @@ const AIAndData = () => {
               We deploy proprietary neural architectures designed for high-stakes environments. From predictive maintenance to natural language understanding, our models are built for accuracy and explainability.
             </p>
 
-            {/* Bullet List */}
-            <ul className="space-y-2 sm:space-y-3 list-none">
-              <li 
-                className="text-base sm:text-lg"
-                style={{ color: '#000000', fontWeight: 500 }}
-              >
-                Neural Network Architecture
-              </li>
-              <li 
-                className="text-base sm:text-lg"
-                style={{ color: '#000000', fontWeight: 500 }}
-              >
-                Automated Decision Systems
-              </li>
-              <li 
-                className="text-base sm:text-lg"
-                style={{ color: '#000000', fontWeight: 500 }}
-              >
-                Explainable AI (XAI) Frameworks
-              </li>
-            </ul>
+            {/* Feature List Box */}
+            <div 
+              className="border p-4 sm:p-5 lg:p-6"
+              style={{ 
+                borderColor: '#E2E8F0',
+                borderWidth: '1px',
+                borderRadius: '16px',
+                backgroundColor: 'transparent',
+                width: '100%',
+                maxWidth: '347px',
+                minHeight: 'clamp(100px, 20vh, 112px)'
+              }}
+            >
+              {[
+                'Neural Network Architecture',
+                'Automated Decision Systems',
+                'Explainable AI (XAI) Frameworks'
+              ].map((feature, idx) => (
+                <div
+                  key={idx}
+                  className="flex items-center gap-2 sm:gap-3"
+                  style={{ marginBottom: idx === 2 ? '0' : '4px' }}
+                >
+                  {/* Number */}
+                  <span 
+                    className="text-xs sm:text-sm md:text-base lg:text-lg font-medium"
+                    style={{ color: '#64748B', fontWeight: 500 }}
+                  >
+                    {idx + 1}.
+                  </span>
+                  {/* Feature Text */}
+                  <span 
+                    className="text-xs sm:text-sm md:text-base lg:text-lg font-medium"
+                    style={{ color: '#64748B', fontWeight: 500 }}
+                  >
+                    {feature}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* Right Column - Big Data Analytics */}
@@ -143,27 +162,46 @@ const AIAndData = () => {
               Transforming petabyte-scale raw information into actionable strategic assets. Our data lakes and streaming pipelines ensure up-to-date insights for real-time decision-making.
             </p>
 
-            {/* Bullet List */}
-            <ul className="space-y-2 sm:space-y-3 list-none">
-              <li 
-                className="text-base sm:text-lg"
-                style={{ color: '#000000', fontWeight: 500 }}
-              >
-                Real-time Pipeline Engineering
-              </li>
-              <li 
-                className="text-base sm:text-lg"
-                style={{ color: '#000000', fontWeight: 500 }}
-              >
-                Data Lakehouse Implementation
-              </li>
-              <li 
-                className="text-base sm:text-lg"
-                style={{ color: '#000000', fontWeight: 500 }}
-              >
-                Predictive Market Modeling
-              </li>
-            </ul>
+            {/* Feature List Box */}
+            <div 
+              className="border p-4 sm:p-5 lg:p-6"
+              style={{ 
+                borderColor: '#E2E8F0',
+                borderWidth: '1px',
+                borderRadius: '16px',
+                backgroundColor: 'transparent',
+                width: '100%',
+                maxWidth: '347px',
+                minHeight: 'clamp(100px, 20vh, 112px)'
+              }}
+            >
+              {[
+                'Real-time Pipeline Engineering',
+                'Data Lakehouse Implementation',
+                'Predictive Market Modeling'
+              ].map((feature, idx) => (
+                <div
+                  key={idx}
+                  className="flex items-center gap-2 sm:gap-3"
+                  style={{ marginBottom: idx === 2 ? '0' : '4px' }}
+                >
+                  {/* Number */}
+                  <span 
+                    className="text-xs sm:text-sm md:text-base lg:text-lg font-medium"
+                    style={{ color: '#64748B', fontWeight: 500 }}
+                  >
+                    {idx + 1}.
+                  </span>
+                  {/* Feature Text */}
+                  <span 
+                    className="text-xs sm:text-sm md:text-base lg:text-lg font-medium"
+                    style={{ color: '#64748B', fontWeight: 500 }}
+                  >
+                    {feature}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

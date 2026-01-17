@@ -1,6 +1,10 @@
 import React, { useEffect } from 'react';
 import { FiArrowRight } from "react-icons/fi";
 import CloudBanner from '../assets/CloudBanner.png';
+import CloudDevelopment from '../assets/cloud/Cloud Development.svg';
+import GitHub from '../assets/cloud/GitHub.svg';
+import Icon3 from '../assets/cloud/3.svg';
+import Icon4 from '../assets/cloud/4.svg';
 
 const Cloud = () => {
   useEffect(() => {
@@ -65,24 +69,28 @@ const Cloud = () => {
               {
                 index: "01",
                 title: "Cloud Transformation",
+                icon: CloudDevelopment,
                 description: "Migration & strategy accelerated through fit-for-purpose discovery, planning, and execution frameworks.",
                 features: ["Cloud Readiness Assessment", "Legacy Decommissioning"]
               },
               {
                 index: "02",
                 title: "Managed DevOps & SRE",
+                icon: GitHub,
                 description: "CI/CD, Kubernetes, and observability engineering culture focused on automation, site reliability, and 24/7 visibility.",
                 features: ["GitOps Pipelines", "Service Mesh & K8s"]
               },
               {
                 index: "03",
                 title: "Cybersecurity & Compliance",
+                icon: Icon3,
                 description: "Zero Trust cloud governance. Securing the perimeter and the core through automated policy enforcement and encryption.",
                 features: ["IAM & Least Privilege", "SOC / ISO Alignment"]
               },
               {
                 index: "04",
                 title: "Hybrid & Multi-Cloud",
+                icon: Icon4,
                 description: "Architecture distributed across first- and third-party cloud providers and on-premises assets with unified control planes.",
                 features: ["Inter-Cloud Networking", "Data Portability"]
               }
@@ -98,18 +106,20 @@ const Cloud = () => {
                   borderColor: '#E2E8F0'
                 }}
               >
-                {/* Index Badge */}
+                {/* Icon */}
                 <div
-                  className="inline-block px-2 sm:px-3 py-1 mb-4 sm:mb-6 md:mb-8"
-                  style={{
-                    backgroundColor: '#020617',
-                    color: '#FFFFFF',
-                    borderRadius: '4px',
-                    fontSize: 'clamp(10px, 1.2vw, 12px)',
-                    fontWeight: 600
-                  }}
+                  className="mb-4 sm:mb-6 md:mb-8"
+                  style={{ width: '24px', height: '24px' }}
                 >
-                  {service.index}
+                  <img 
+                    src={service.icon} 
+                    alt={service.title}
+                    style={{
+                      width: '24px',
+                      height: '24px',
+                      objectFit: 'contain'
+                    }}
+                  />
                 </div>
 
                 {/* Title */}
@@ -152,14 +162,39 @@ const Cloud = () => {
                 </p>
 
                 {/* Feature List */}
-                <div className="space-y-2 sm:space-y-3">
+                <div 
+                  className="border"
+                  style={{ 
+                    borderColor: '#E2E8F0',
+                    borderWidth: '1px',
+                    borderRadius: '16px',
+                    backgroundColor: 'transparent',
+                    width: '347px',
+                    minHeight: '112px',
+                    maxWidth: '100%',
+                    padding: '24px'
+                  }}
+                >
                   {service.features.map((feature, idx) => (
                     <div
                       key={idx}
-                      className="text-sm sm:text-base md:text-lg font-bold"
-                      style={{ color: '#000000' }}
+                      className="flex items-center gap-3"
+                      style={{ marginBottom: idx === service.features.length - 1 ? '0' : '4px' }}
                     >
-                      {feature}
+                      {/* Number */}
+                      <span 
+                        className="text-sm sm:text-base md:text-lg font-medium"
+                        style={{ color: '#64748B', fontWeight: 500 }}
+                      >
+                        {idx + 1}.
+                      </span>
+                      {/* Feature Text */}
+                      <span 
+                        className="text-sm sm:text-base md:text-lg font-medium"
+                        style={{ color: '#64748B', fontWeight: 500 }}
+                      >
+                        {feature}
+                      </span>
                     </div>
                   ))}
                 </div>
@@ -170,18 +205,18 @@ const Cloud = () => {
       </section>
 
       {/* Core Benefits Section */}
-      <section className="w-full py-6 sm:py-8 lg:py-10 xl:py-12" style={{ backgroundColor: '#020617' }}>
+      <section className="w-full py-12 sm:py-16 lg:py-20 xl:py-24" style={{ backgroundColor: '#020617' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Heading */}
           <h2 
-            className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-12 sm:mb-16 lg:mb-20 tracking-[-0.02em]"
-            style={{ color: '#FFFFFF' }}
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-12 sm:mb-16 lg:mb-20 tracking-[-0.02em]"
+            style={{ color: '#FFFFFF', fontWeight: 600 }}
           >
             Core Benefits
           </h2>
 
           {/* Benefits Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10 lg:gap-12">
             {[
               {
                 index: "01",
@@ -199,30 +234,27 @@ const Cloud = () => {
                 description: "Continuous audit-readiness through automated governance that maps technical controls to global regulatory standards."
               }
             ].map((benefit, index) => (
-              <div key={index} className="flex flex-col md:ml-2 lg:ml-4 xl:ml-6">
-                {/* Index Number and Title - Same Line */}
-                <h3 
-                  className="font-bold mb-3 sm:mb-4 md:mb-6 tracking-[-0.02em] flex items-center gap-2 sm:gap-3 md:gap-4"
-                  style={{ color: '#FFFFFF', fontSize: 'clamp(20px, 3vw, 32px)' }}
+              <div key={index} className="flex flex-col">
+                {/* Index Number */}
+                <div 
+                  className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 sm:mb-6 italic"
+                  style={{ color: '#475569', fontWeight: 600 }}
                 >
-                  <span 
-                    className="italic"
-                    style={{ 
-                      color: '#475569', 
-                      fontWeight: 600, 
-                      fontSize: 'clamp(32px, 4.5vw, 48px)',
-                      lineHeight: '1'
-                    }}
-                  >
-                    {benefit.index}
-                  </span>
-                  <span className="whitespace-nowrap">{benefit.title}</span>
+                  {benefit.index}
+                </div>
+
+                {/* Title */}
+                <h3 
+                  className="text-xl sm:text-2xl lg:text-3xl mb-4 sm:mb-6 tracking-[-0.02em]"
+                  style={{ color: '#FFFFFF', fontWeight: 600 }}
+                >
+                  {benefit.title}
                 </h3>
 
                 {/* Description */}
                 <p 
-                  className="text-xs sm:text-sm md:text-base leading-relaxed max-w-md"
-                  style={{ color: '#94A3B8', fontWeight: 400, marginLeft: 'clamp(40px, 6vw, 64px)' }}
+                  className="text-base sm:text-lg leading-relaxed"
+                  style={{ color: '#94A3B8', fontWeight: 400 }}
                 >
                   {benefit.description}
                 </p>

@@ -2,6 +2,9 @@ import React, { useEffect, useState, useRef } from 'react';
 import { RiReactjsLine, RiFolder6Fill } from "react-icons/ri";
 import { FaDatabase, FaAws } from "react-icons/fa";
 import { MdCloudDone } from "react-icons/md";
+import LaptopMetrics from '../assets/engineering/Laptop Metrics.svg';
+import Smartphone from '../assets/engineering/Smartphone.svg';
+import CloudComputing from '../assets/engineering/Cloud Computing.svg';
 
 const Engineering = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -32,6 +35,7 @@ const Engineering = () => {
     {
       index: "01",
       title: "Custom Software Engineering",
+      icon: LaptopMetrics,
       description: "We build robust, enterprise-grade scalable solutions tailored to complex business logic. Our engineering team focuses on backend reliability and seamless data orchestration.",
       focus: "Full-stack",
       metric: "99.9% Scalability"
@@ -39,6 +43,7 @@ const Engineering = () => {
     {
       index: "02",
       title: "Advanced Mobile & Web Applications",
+      icon: Smartphone,
       description: "High-performance cross-platform applications designed for speed and native-level experience. We leverage modern frameworks to ensure consistent performance across all devices.",
       focus: "Cross-platform",
       metric: "60 FPS Render"
@@ -46,6 +51,7 @@ const Engineering = () => {
     {
       index: "03",
       title: "Modern Cloud Infrastructure",
+      icon: CloudComputing,
       description: "Resilient cloud architectures built on industry-leading platforms. We specialize in automated deployments, self-healing systems, and global content delivery.",
       focus: "Cloud Native",
       metric: "Zero-downtime"
@@ -118,12 +124,20 @@ const Engineering = () => {
               key={index} 
               className={`flex flex-col ${index > 0 && index % 3 !== 0 ? 'lg:pl-6 xl:pl-8' : ''} ${index > 0 && index % 3 === 0 ? 'lg:pl-0' : ''}`}
             >
-              {/* Index Number */}
+              {/* Icon */}
               <div 
-                className="text-sm sm:text-base mb-2 sm:mb-3"
-                style={{ color: '#000000', fontWeight: 500 }}
+                className="mb-2 sm:mb-3"
+                style={{ width: '24px', height: '24px' }}
               >
-                {capability.index}
+                <img 
+                  src={capability.icon} 
+                  alt={capability.title}
+                  style={{
+                    width: '24px',
+                    height: '24px',
+                    objectFit: 'contain'
+                  }}
+                />
               </div>
 
               {/* Title */}
@@ -318,7 +332,7 @@ const Engineering = () => {
           {/* Marquee Container */}
           <div 
             ref={marqueeRef}
-            className={`relative scrollbar-hide ${isHovered ? 'overflow-x-auto' : 'overflow-hidden'}`}
+            className="relative scrollbar-hide overflow-hidden"
             style={{ width: '100%' }}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
@@ -329,7 +343,9 @@ const Engineering = () => {
                 display: 'flex',
                 width: 'max-content',
                 gap: 'clamp(16px, 2vw, 24px)',
-                animation: isHovered ? 'none' : 'marquee 40s linear infinite'
+                animation: 'marquee 40s linear infinite',
+                animationPlayState: isHovered ? 'paused' : 'running',
+                willChange: 'transform'
               }}
             >
               {/* First set of tech items */}
