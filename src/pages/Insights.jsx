@@ -20,10 +20,10 @@ const Insights = () => {
         <div className="mx-auto" style={{ maxWidth: '1440px', width: '100%', paddingLeft: 'clamp(16px, 4vw, 60px)', paddingRight: 'clamp(16px, 4vw, 60px)' }}>
           {/* Hero Image */}
           <div 
-            className="rounded-2xl overflow-hidden mb-6"
+            className="rounded-2xl overflow-hidden mb-6 lg:w-[1320px] lg:h-[596px] lg:!w-[1320px] lg:!h-[596px]"
             style={{
-              width: '1320px',
-              height: '596px',
+              width: '100%',
+              height: 'clamp(250px, 35vh, 350px)',
               borderRadius: '16px',
               maxWidth: '100%'
             }}
@@ -67,10 +67,10 @@ const Insights = () => {
 
           {/* Article Title */}
           <h1 
-            className="font-bold tracking-[-0.02em] mb-4"
+            className="font-bold tracking-[-0.02em] mb-4 lg:!text-[72px]"
             style={{ 
               color: '#000000',
-              fontSize: '72px',
+              fontSize: 'clamp(32px, 5vw, 72px)',
               fontWeight: 600,
               lineHeight: '1.1',
               maxWidth: '1320px'
@@ -120,8 +120,8 @@ const Insights = () => {
           }}
         ></div>
         
-        <div className="mx-auto" style={{ maxWidth: '1440px', width: '100%', paddingLeft: '60px', paddingRight: '60px', paddingBottom: '16px' }}>
-          <div className="flex flex-wrap gap-6 sm:gap-8 lg:gap-10">
+        <div className="mx-auto lg:!pl-[60px] lg:!pr-[60px]" style={{ maxWidth: '1440px', width: '100%', paddingLeft: 'clamp(16px, 4vw, 60px)', paddingRight: 'clamp(16px, 4vw, 60px)', paddingBottom: '16px' }}>
+          <div className="flex flex-wrap lg:flex-wrap gap-2 sm:gap-3 lg:gap-10">
             {['All Stories', 'Engineering', 'AI & Data', 'Strategy'].map((category) => (
               <button
                 key={category}
@@ -135,11 +135,13 @@ const Insights = () => {
                 }}
               >
                 <span
+                  className={(category === 'All Stories' || category === 'Engineering') ? 'lg:!text-[25px] whitespace-nowrap' : 'lg:!text-[28px] whitespace-nowrap'}
                   style={{
                     color: '#000000',
                     fontWeight: 600,
-                    fontSize: (category === 'All Stories' || category === 'Engineering') ? '25px' : '28px',
-                    fontFamily: 'inherit'
+                    fontSize: (category === 'All Stories' || category === 'Engineering') ? 'clamp(16px, 2.5vw, 25px)' : 'clamp(18px, 3vw, 28px)',
+                    fontFamily: 'inherit',
+                    whiteSpace: 'nowrap'
                   }}
                 >
                   {category}
@@ -261,10 +263,10 @@ const Insights = () => {
               <img 
                 src={MigratingImage} 
                 alt="Migrating Legacy System"
-                className="rounded-2xl"
+                className="rounded-2xl lg:!w-[640px] lg:!h-[456px]"
                 style={{
-                  width: '640px',
-                  height: '456px',
+                  width: '100%',
+                  height: 'clamp(250px, 35vh, 400px)',
                   maxWidth: '100%',
                   filter: 'grayscale(100%)',
                   borderRadius: '16px',
@@ -376,10 +378,10 @@ const Insights = () => {
               <img 
                 src={TheMoralImage} 
                 alt="The Moral Landscape of Automation"
-                className="rounded-2xl"
+                className="rounded-2xl lg:!w-[640px] lg:!h-[456px]"
                 style={{
-                  width: '640px',
-                  height: '456px',
+                  width: '100%',
+                  height: 'clamp(250px, 35vh, 400px)',
                   maxWidth: '100%',
                   filter: 'grayscale(100%)',
                   borderRadius: '16px',
@@ -452,7 +454,7 @@ const Insights = () => {
               </p>
 
               {/* Email Input and Subscribe Button */}
-              <div className="flex flex-col sm:flex-row gap-3 max-w-md">
+              <div className="flex flex-row gap-3 max-w-md">
                 <input
                   type="email"
                   placeholder="Email address"
@@ -487,12 +489,21 @@ const Insights = () => {
 
       {/* Article List Section */}
       <section className="w-full bg-white pt-12 sm:pt-16 lg:pt-20 pb-12 sm:pb-16 lg:pb-20 xl:pb-24 relative">
+        <style>{`
+          @media (min-width: 1024px) {
+            .article-image-1,
+            .article-image-2 {
+              width: clamp(280px, 30vw, 336px) !important;
+              height: 200px !important;
+            }
+          }
+        `}</style>
         <div className="mx-auto" style={{ maxWidth: '1440px', width: '100%', paddingLeft: 'clamp(16px, 4vw, 60px)', paddingRight: 'clamp(16px, 4vw, 60px)' }}>
           {/* Article 1 */}
           <div className="relative pb-8 sm:pb-12" style={{ paddingBottom: '48px', marginBottom: '48px' }}>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
+            <div className="flex flex-row lg:grid lg:grid-cols-2 gap-4 sm:gap-8 lg:gap-16 items-center">
               {/* Left Column - Text Content */}
-              <div className="flex flex-col">
+              <div className="flex flex-col flex-1">
                 {/* Category Label */}
                 <div 
                   className="text-xs sm:text-sm uppercase tracking-widest mb-3"
@@ -508,15 +519,16 @@ const Insights = () => {
 
                 {/* Article Title */}
                 <h2 
-                  className="font-bold tracking-[-0.02em] mb-3"
+                  className="font-bold tracking-[-0.02em] mb-3 lg:!text-[48px]"
                   style={{ 
                     color: '#000000',
-                    fontSize: 'clamp(32px, 5vw, 48px)',
+                    fontSize: 'clamp(22px, 4vw, 48px)',
                     fontWeight: 600,
                     lineHeight: '1.1'
                   }}
                 >
-                  The Architecture of Scale
+                  <span className="lg:hidden">The<br />Architecture<br />of Scale</span>
+                  <span className="hidden lg:inline">The Architecture of Scale</span>
                 </h2>
 
                 {/* Meta Text */}
@@ -532,14 +544,15 @@ const Insights = () => {
               </div>
 
             {/* Right Column - Image */}
-            <div className="w-full lg:w-auto flex justify-end">
+            <div className="flex-shrink-0 lg:w-auto lg:flex lg:justify-end">
               <img 
                 src={TheArchitectureImage} 
                 alt="The Architecture of Scale"
+                className="article-image-1"
                 style={{
-                  width: 'clamp(280px, 30vw, 336px)',
+                  width: '178px',
+                  height: '160px',
                   maxWidth: '100%',
-                  height: '200px',
                   filter: 'grayscale(100%)',
                   borderRadius: '0px',
                   objectFit: 'cover'
@@ -561,9 +574,9 @@ const Insights = () => {
           </div>
 
           {/* Article 2 */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
+          <div className="flex flex-row lg:grid lg:grid-cols-2 gap-4 sm:gap-8 lg:gap-16 items-center">
             {/* Left Column - Text Content */}
-            <div className="flex flex-col">
+            <div className="flex flex-col flex-1">
               {/* Category Label */}
               <div 
                 className="text-xs sm:text-sm uppercase tracking-widest mb-3"
@@ -579,15 +592,16 @@ const Insights = () => {
 
               {/* Article Title */}
               <h2 
-                className="font-bold tracking-[-0.02em] mb-3"
+                className="font-bold tracking-[-0.02em] mb-3 lg:!text-[48px]"
                 style={{ 
                   color: '#000000',
-                  fontSize: 'clamp(32px, 5vw, 48px)',
+                  fontSize: 'clamp(22px, 4vw, 48px)',
                   fontWeight: 600,
                   lineHeight: '1.1'
                 }}
               >
-                <span style={{ whiteSpace: 'nowrap' }}>Visualizing Complex Systems</span>
+                <span className="lg:hidden">Visualizing<br />Complex<br />Systems</span>
+                <span className="hidden lg:inline">Visualizing Complex Systems</span>
               </h2>
 
                 {/* Meta Text */}
@@ -603,14 +617,15 @@ const Insights = () => {
             </div>
 
             {/* Right Column - Image */}
-            <div className="w-full lg:w-auto flex justify-end">
+            <div className="flex-shrink-0 lg:w-auto lg:flex lg:justify-end">
               <img 
                 src={VisulizingImage} 
                 alt="Visualizing Complex Systems"
+                className="article-image-2"
                 style={{
-                  width: 'clamp(280px, 30vw, 336px)',
+                  width: '178px',
+                  height: '160px',
                   maxWidth: '100%',
-                  height: '200px',
                   filter: 'grayscale(100%)',
                   borderRadius: '0px',
                   objectFit: 'cover'
