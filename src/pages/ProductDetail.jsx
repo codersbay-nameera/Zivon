@@ -265,7 +265,7 @@ const ProductDetail = () => {
                   className="font-bold"
                   style={{ 
                     color: '#000000', 
-                    fontSize: 'clamp(18px, 3vw, 24px)', 
+                    fontSize: '24px', 
                     marginBottom: '8px', 
                     marginTop: 'clamp(12px, 2vw, 16px)' 
                   }}
@@ -279,7 +279,7 @@ const ProductDetail = () => {
                   style={{ 
                     color: '#64748B', 
                     fontWeight: 500, 
-                    fontSize: 'clamp(14px, 2.5vw, 20px)' 
+                    fontSize: '18px' 
                   }}
                 >
                   {capability.subtitle}
@@ -369,8 +369,8 @@ const ProductDetail = () => {
 
               {/* Main Title */}
               <h2 
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 tracking-[-0.02em]"
-                style={{ color: '#FFFFFF' }}
+                className="font-bold mb-4 sm:mb-6 tracking-[-0.02em]"
+                style={{ color: '#FFFFFF', fontSize: '48px' }}
               >
                 Microsoft Core
               </h2>

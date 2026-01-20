@@ -76,8 +76,8 @@ const AIAndData = () => {
 
             {/* Title */}
             <h2 
-              className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6 tracking-[-0.02em]"
-              style={{ color: '#000000' }}
+              className="font-bold mb-4 sm:mb-6 tracking-[-0.02em]"
+              style={{ color: '#000000', fontSize: '30px' }}
             >
               Machine Learning
             </h2>
@@ -116,15 +116,15 @@ const AIAndData = () => {
                 >
                   {/* Number */}
                   <span 
-                    className="text-xs sm:text-sm md:text-base lg:text-lg font-medium"
-                    style={{ color: '#64748B', fontWeight: 500, fontSize: '20px', lineHeight: '28px' }}
+                    className="font-medium"
+                    style={{ color: '#64748B', fontWeight: 500, fontSize: '18px', lineHeight: '28px' }}
                   >
                     {idx + 1}.
                   </span>
                   {/* Feature Text */}
                   <span 
-                    className="text-xs sm:text-sm md:text-base lg:text-lg font-medium"
-                    style={{ color: '#64748B', fontWeight: 500, fontSize: '20px', lineHeight: '28px' }}
+                    className="font-medium"
+                    style={{ color: '#64748B', fontWeight: 500, fontSize: '18px', lineHeight: '28px' }}
                   >
                     {feature}
                   </span>
@@ -189,15 +189,15 @@ const AIAndData = () => {
                 >
                   {/* Number */}
                   <span 
-                    className="text-xs sm:text-sm md:text-base lg:text-lg font-medium"
-                    style={{ color: '#64748B', fontWeight: 500, fontSize: '20px', lineHeight: '28px' }}
+                    className="font-medium"
+                    style={{ color: '#64748B', fontWeight: 500, fontSize: '18px', lineHeight: '28px' }}
                   >
                     {idx + 1}.
                   </span>
                   {/* Feature Text */}
                   <span 
-                    className="text-xs sm:text-sm md:text-base lg:text-lg font-medium"
-                    style={{ color: '#64748B', fontWeight: 500, fontSize: '20px', lineHeight: '28px' }}
+                    className="font-medium"
+                    style={{ color: '#64748B', fontWeight: 500, fontSize: '18px', lineHeight: '28px' }}
                   >
                     {feature}
                   </span>
@@ -262,14 +262,14 @@ const AIAndData = () => {
                 {/* Metric Value */}
                 <div 
                   className="font-bold mb-2 sm:mb-3"
-                  style={{ color: '#000000', fontSize: 'clamp(20px, 3vw, 30px)' }}
+                  style={{ color: '#000000', fontSize: '24px' }}
                 >
                   {metric.value}
                 </div>
                 {/* Metric Label */}
                 <div 
-                  className="text-xs sm:text-sm md:text-base font-medium"
-                  style={{ color: '#64748B' }}
+                  className="font-medium"
+                  style={{ color: '#64748B', fontSize: '18px' }}
                 >
                   {metric.label}
                 </div>

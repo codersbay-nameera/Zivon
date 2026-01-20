@@ -240,8 +240,8 @@ const Engineering = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Heading */}
           <h2 
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-12 sm:mb-16 lg:mb-20 tracking-[-0.02em]"
-            style={{ color: '#FFFFFF', fontWeight: 600 }}
+            className="mb-12 sm:mb-16 lg:mb-20 tracking-[-0.02em]"
+            style={{ color: '#FFFFFF', fontWeight: 600, fontSize: '36px' }}
           >
             Our Approach
           </h2>
@@ -255,8 +255,8 @@ const Engineering = () => {
               >
                 {/* Step Number */}
                 <div 
-                  className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 sm:mb-6 italic"
-                  style={{ color: '#475569', fontWeight: 600 }}
+                  className="mb-4 sm:mb-6 italic"
+                  style={{ color: '#475569', fontWeight: 600, fontSize: '48px' }}
                 >
                   {approach.step}
                 </div>

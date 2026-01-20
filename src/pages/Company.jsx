@@ -99,7 +99,7 @@ const Company = () => {
                   color: '#64748B', 
                   fontWeight: 400, 
                   whiteSpace: 'pre-line',
-                  fontSize: 'clamp(14px, 2vw, 20px)',
+                  fontSize: '18px',
                   lineHeight: '1.6'
                 }}
               >
@@ -324,7 +324,7 @@ const Company = () => {
                   className="mb-2 sm:mb-3"
                   style={{ 
                     color: '#000000',
-                    fontSize: 'clamp(20px, 3vw, 30px)',
+                    fontSize: '24px',
                     fontWeight: 600
                   }}
                 >
@@ -336,7 +336,7 @@ const Company = () => {
                   className="uppercase tracking-wider"
                   style={{ 
                     color: '#475569', 
-                    fontSize: 'clamp(14px, 2vw, 20px)',
+                    fontSize: '18px',
                     fontWeight: 500
                   }}
                 >
@@ -458,7 +458,7 @@ const Company = () => {
                 {/* Description */}
                 <p 
                   className="leading-relaxed"
-                  style={{ color: '#64748B', fontWeight: 400, fontSize: '20px', lineHeight: '25px' }}
+                  style={{ color: '#64748B', fontWeight: 400, fontSize: '18px', lineHeight: '25px' }}
                 >
                   {value.description}
                 </p>
@@ -542,7 +542,7 @@ const Company = () => {
                 {/* Description */}
                 <p 
                   className="leading-relaxed"
-                  style={{ color: '#64748B', fontWeight: 400, fontSize: '20px', lineHeight: '25px' }}
+                  style={{ color: '#64748B', fontWeight: 400, fontSize: '18px', lineHeight: '25px' }}
                 >
                   {value.description}
                 </p>
@@ -566,7 +566,7 @@ const Company = () => {
 
           {/* Main Map Card */}
           <div 
-            className="relative mb-6 sm:mb-8 lg:mb-10"
+            className="relative mb-6 sm:mb-8 lg:mb-10 map-card-container"
             style={{
               backgroundColor: '#F1F5F9',
               borderRadius: '16px',
@@ -577,6 +577,14 @@ const Company = () => {
               gap: '10px'
             }}
           >
+            <style>{`
+              @media (min-width: 1024px) {
+                .map-card-container {
+                  width: 1280px !important;
+                  height: 605px !important;
+                }
+              }
+            `}</style>
             {/* Headquarters Badge - Bottom Left */}
             <div 
               className="absolute bottom-4 sm:bottom-6 lg:bottom-8 left-4 sm:left-6 lg:left-8 bg-white border flex items-center justify-between"
@@ -599,8 +607,8 @@ const Company = () => {
                   HEADQUARTERS
                 </div>
                 <div 
-                  className="text-sm font-semibold"
-                  style={{ color: '#000000', fontWeight: 600 }}
+                  className="font-semibold"
+                  style={{ color: '#000000', fontWeight: 600, fontSize: '18px' }}
                 >
                   San Francisco
                 </div>
@@ -609,8 +617,8 @@ const Company = () => {
                 src={EmailSendIcon}
                 alt="Email"
                 style={{
-                  width: '16px',
-                  height: '16px',
+                  width: '24px',
+                  height: '24px',
                   objectFit: 'contain',
                   flexShrink: 0
                 }}
@@ -619,53 +627,67 @@ const Company = () => {
           </div>
 
           {/* City List Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
-            {[
-              {
-                city: 'London, UK'
-              },
-              {
-                city: 'Berlin, Germany'
-              },
-              {
-                city: 'Tokyo, Japan'
-              }
-            ].map((location, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-xl border flex items-center justify-between p-4 sm:p-6 cursor-pointer"
-                style={{
-                  borderRadius: '12px',
-                  borderColor: '#E2E8F0'
-                }}
-              >
-                {/* Left: Icon + City Name */}
-                <div className="flex items-center gap-3">
-                  <span 
-                    className="material-symbols-outlined"
-                    style={{ 
-                      color: '#000000', 
-                      fontSize: '20px',
-                      fontWeight: 400
-                    }}
-                  >
-                    business
-                  </span>
-                  <span 
-                    className="text-base sm:text-lg font-medium"
-                    style={{ color: '#000000', fontWeight: 500 }}
-                  >
-                    {location.city}
-                  </span>
-                </div>
+          <div style={{ width: '100%', maxWidth: '1280px' }}>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6" style={{ width: '100%' }}>
+              {[
+                {
+                  city: 'London, UK'
+                },
+                {
+                  city: 'Berlin, Germany'
+                },
+                {
+                  city: 'Tokyo, Japan'
+                }
+              ].map((location, index) => (
+                <div
+                  key={index}
+                  className="bg-white rounded-xl border flex items-center justify-between cursor-pointer"
+                  style={{
+                    borderRadius: '12px',
+                    borderColor: '#E2E8F0',
+                    borderWidth: '1px',
+                    borderStyle: 'solid',
+                    width: '100%',
+                    height: '72px',
+                    minHeight: '72px',
+                    maxHeight: '72px',
+                    paddingLeft: '24px',
+                    paddingRight: '24px',
+                    paddingTop: '16px',
+                    paddingBottom: '16px',
+                    boxSizing: 'border-box',
+                    overflow: 'hidden'
+                  }}
+                >
+                  {/* Left: Icon + City Name */}
+                  <div className="flex items-center gap-3 flex-1 min-w-0">
+                    <span 
+                      className="material-symbols-outlined flex-shrink-0"
+                      style={{ 
+                        color: '#000000', 
+                        fontSize: '20px',
+                        fontWeight: 400
+                      }}
+                    >
+                      business
+                    </span>
+                    <span 
+                      className="text-base sm:text-lg font-medium truncate"
+                      style={{ color: '#000000', fontWeight: 500 }}
+                    >
+                      {location.city}
+                    </span>
+                  </div>
 
-                {/* Right: Arrow Icon */}
-                <FiChevronRight 
-                  className="w-5 h-5"
-                  style={{ color: '#000000' }}
-                />
-              </div>
-            ))}
+                  {/* Right: Arrow Icon */}
+                  <FiChevronRight 
+                    className="w-5 h-5 flex-shrink-0"
+                    style={{ color: '#000000', marginLeft: '12px' }}
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

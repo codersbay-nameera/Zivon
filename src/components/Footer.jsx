@@ -18,7 +18,7 @@ const Footer = () => {
             >
               <span className="font-bold">AXON</span><span className="font-normal">CORP</span>
             </Link>
-            <p className="leading-relaxed" style={{ color: '#020617', fontWeight: 400, fontSize: 'clamp(16px, 4vw, 20px)' }}>
+            <p className="leading-relaxed" style={{ color: '#020617', fontWeight: 400, fontSize: '18px' }}>
               Redefining what's possible in digital infrastructure.
             </p>
           </div>

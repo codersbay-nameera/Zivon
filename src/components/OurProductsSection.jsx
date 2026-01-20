@@ -114,7 +114,10 @@ const OurProductsSection = () => {
               </div>
 
               {/* Product Title */}
-              <h3 className="text-xl sm:text-2xl font-semibold text-primary mb-3 sm:mb-4 tracking-[-0.02em]">
+              <h3 
+                className="text-xl sm:text-2xl font-semibold text-primary mb-3 sm:mb-4 tracking-[-0.02em] hover:underline transition-all duration-200"
+                style={{ textDecorationThickness: '1px', textUnderlineOffset: '4px', textDecorationColor: '#000000' }}
+              >
                 {product.title}
               </h3>
 

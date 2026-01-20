@@ -204,15 +204,15 @@ const Cloud = () => {
                     >
                       {/* Number */}
                       <span 
-                        className="font-medium"
-                        style={{ color: '#64748B', fontWeight: 500, fontSize: '20px', lineHeight: '28px' }}
+                        className="font-medium text-sm sm:text-base md:text-lg"
+                        style={{ color: '#64748B', fontWeight: 500 }}
                       >
                         {idx + 1}.
                       </span>
                       {/* Feature Text */}
                       <span 
-                        className="font-medium"
-                        style={{ color: '#64748B', fontWeight: 500, fontSize: '20px', lineHeight: '28px' }}
+                        className="font-medium text-sm sm:text-base md:text-lg"
+                        style={{ color: '#64748B', fontWeight: 500 }}
                       >
                         {feature}
                       </span>
@@ -230,8 +230,8 @@ const Cloud = () => {
         <div className="mx-auto" style={{ maxWidth: '1440px', width: '100%', paddingLeft: 'clamp(16px, 4vw, 60px)', paddingRight: 'clamp(16px, 4vw, 60px)' }}>
           {/* Heading */}
           <h2 
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-12 sm:mb-16 lg:mb-20 tracking-[-0.02em]"
-            style={{ color: '#FFFFFF', fontWeight: 600 }}
+            className="mb-12 sm:mb-16 lg:mb-20 tracking-[-0.02em]"
+            style={{ color: '#FFFFFF', fontWeight: 600, fontSize: '36px' }}
           >
             Core Benefits
           </h2>
@@ -296,7 +296,7 @@ const Cloud = () => {
                 {/* Description */}
                 <p 
                   className="text-base sm:text-lg leading-relaxed"
-                  style={{ color: '#94A3B8', fontWeight: 400, fontSize: '20px', lineHeight: '28px' }}
+                  style={{ color: '#94A3B8', fontWeight: 400, fontSize: '18px', lineHeight: '28px' }}
                 >
                   {benefit.description}
                 </p>
@@ -323,8 +323,8 @@ const Cloud = () => {
 
             {/* Description */}
             <p 
-              className="text-base sm:text-lg lg:text-xl mb-6 sm:mb-8 leading-relaxed"
-              style={{ color: '#64748B', fontWeight: 400 }}
+              className="mb-6 sm:mb-8 leading-relaxed"
+              style={{ color: '#64748B', fontWeight: 400, fontSize: '18px' }}
             >
               Unlock the full potential of enterprise cloud through a<br></br> dedicated technical consultation.
             </p>

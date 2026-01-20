@@ -34,7 +34,7 @@ const CapabilitiesSection = () => {
     },
     {
       icon: CloudIcon,
-      title: "Cloud",
+      title: "Cloud Infrastructure",
       description: "Native cloud infrastructure and DevOps automation. We build resilient environments that scale with your business demands.",
       isMultiLine: true,
       isSvgIcon: true,
@@ -104,7 +104,7 @@ const CapabilitiesSection = () => {
                       reliability.
                     </>
                   )}
-                  {capability.title === "Cloud" && (
+                  {capability.title === "Cloud Infrastructure" && (
                     <>
                       Native cloud infrastructure and DevOps<br />
                       automation. We build resilient<br />

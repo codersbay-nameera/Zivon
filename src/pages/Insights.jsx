@@ -135,11 +135,11 @@ const Insights = () => {
                 }}
               >
                 <span
-                  className={(category === 'All Stories' || category === 'Engineering') ? 'lg:!text-[25px] whitespace-nowrap' : 'lg:!text-[28px] whitespace-nowrap'}
+                  className="whitespace-nowrap"
                   style={{
                     color: '#000000',
                     fontWeight: 600,
-                    fontSize: (category === 'All Stories' || category === 'Engineering') ? 'clamp(16px, 2.5vw, 25px)' : 'clamp(18px, 3vw, 28px)',
+                    fontSize: '24px',
                     fontFamily: 'inherit',
                     whiteSpace: 'nowrap'
                   }}
@@ -199,7 +199,7 @@ const Insights = () => {
                 className="font-bold tracking-[-0.02em] mb-4"
                 style={{ 
                   color: '#000000',
-                  fontSize: 'clamp(32px, 5vw, 48px)',
+                  fontSize: '36px',
                   fontWeight: 600,
                   lineHeight: '1.1',
                   maxWidth: '90%'
@@ -210,13 +210,14 @@ const Insights = () => {
 
               {/* Description */}
               <p 
-                className="text-base sm:text-lg lg:text-xl leading-relaxed mb-6"
+                className="leading-relaxed mb-6"
                 style={{ 
                   color: '#64748B',
                   fontWeight: 400,
                   lineHeight: '1.6',
                   marginTop: '16px',
-                  maxWidth: '85%'
+                  maxWidth: '85%',
+                  fontSize: '18px'
                 }}
               >
                 A comprehensive breakdown on how to update critical infrastructure without downtime or data loss.
@@ -247,10 +248,10 @@ const Insights = () => {
                 </div>
                 {/* Read Time */}
                 <div 
-                  className="text-xs sm:text-sm"
                   style={{ 
                     color: '#64748B',
-                    fontWeight: 500
+                    fontWeight: 500,
+                    fontSize: '16px'
                   }}
                 >
                   3 MIN READ
@@ -314,7 +315,7 @@ const Insights = () => {
                 className="font-bold tracking-[-0.02em] mb-4"
                 style={{ 
                   color: '#000000',
-                  fontSize: 'clamp(32px, 5vw, 48px)',
+                  fontSize: '36px',
                   fontWeight: 600,
                   lineHeight: '1.1',
                   maxWidth: '90%'
@@ -362,10 +363,10 @@ const Insights = () => {
                 </div>
                 {/* Read Time */}
                 <div 
-                  className="text-xs sm:text-sm"
                   style={{ 
                     color: '#64748B',
-                    fontWeight: 500
+                    fontWeight: 500,
+                    fontSize: '16px'
                   }}
                 >
                   6 MIN READ
@@ -431,11 +432,12 @@ const Insights = () => {
 
               {/* Heading */}
               <h2 
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4"
+                className="mb-4"
                 style={{ 
                   color: '#FFFFFF',
                   fontWeight: 600,
-                  lineHeight: '1.1'
+                  lineHeight: '1.1',
+                  fontSize: '48px'
                 }}
               >
                 Essential Insights,<br />weekly.
@@ -519,10 +521,10 @@ const Insights = () => {
 
                 {/* Article Title */}
                 <h2 
-                  className="font-bold tracking-[-0.02em] mb-3 lg:!text-[48px]"
+                  className="font-bold tracking-[-0.02em] mb-3"
                   style={{ 
                     color: '#000000',
-                    fontSize: 'clamp(22px, 4vw, 48px)',
+                    fontSize: '36px',
                     fontWeight: 600,
                     lineHeight: '1.1'
                   }}
@@ -533,10 +535,10 @@ const Insights = () => {
 
                 {/* Meta Text */}
                 <div 
-                  className="text-sm sm:text-base"
                   style={{ 
                     color: '#64748B',
-                    fontWeight: 500
+                    fontWeight: 500,
+                    fontSize: '16px'
                   }}
                 >
                   4 MIN READ
@@ -592,10 +594,10 @@ const Insights = () => {
 
               {/* Article Title */}
               <h2 
-                className="font-bold tracking-[-0.02em] mb-3 lg:!text-[48px]"
+                className="font-bold tracking-[-0.02em] mb-3"
                 style={{ 
                   color: '#000000',
-                  fontSize: 'clamp(22px, 4vw, 48px)',
+                  fontSize: '36px',
                   fontWeight: 600,
                   lineHeight: '1.1'
                 }}
@@ -606,10 +608,10 @@ const Insights = () => {
 
                 {/* Meta Text */}
                 <div 
-                  className="text-sm sm:text-base"
                   style={{ 
                     color: '#64748B',
-                    fontWeight: 500
+                    fontWeight: 500,
+                    fontSize: '16px'
                   }}
                 >
                   7 MIN READ
