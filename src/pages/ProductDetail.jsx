@@ -143,7 +143,7 @@ const ProductDetail = () => {
         {
           icon: 'security',
           title: 'Bank Security',
-          subtitle: 'COUNTRIES'
+          subtitle: 'AES-256 encryption at rest'
         },
         {
           icon: 'api',
@@ -170,11 +170,11 @@ const ProductDetail = () => {
       <section className="w-full pb-8 sm:pb-10 lg:pb-12">
         <div className="mx-auto" style={{ maxWidth: '1440px', width: '100%', paddingLeft: 'clamp(16px, 4vw, 60px)', paddingRight: 'clamp(16px, 4vw, 60px)' }}>
           <div 
-            className="relative mx-auto lg:!h-[596px]"
+            className="relative mx-auto product-banner-hero"
             style={{
-              width: '1280px',
+              width: '100%',
+              maxWidth: '1280px',
               height: 'clamp(250px, 35vh, 350px)',
-              maxWidth: '100%',
               borderRadius: '16px',
               backgroundImage: `url(${ProductBanner})`,
               backgroundSize: 'cover',
@@ -182,6 +182,14 @@ const ProductDetail = () => {
               filter: 'grayscale(100%)'
             }}
           >
+            <style>{`
+              @media (min-width: 1024px) {
+                .product-banner-hero {
+                  width: 1280px !important;
+                  height: 596px !important;
+                }
+              }
+            `}</style>
             {/* Greyish Overlay */}
             <div 
               className="absolute inset-0"
@@ -214,8 +222,14 @@ const ProductDetail = () => {
             className="text-base sm:text-lg lg:text-xl leading-relaxed max-w-3xl"
             style={{ color: '#64748B', fontWeight: 400 }}
           >
-            Real-time data processing for enterprise scale. Turn chaos into<br />
-            clarity with zero latency.
+            <span className="hidden lg:inline">
+              Real-time data processing for enterprise scale. Turn chaos into<br />
+              clarity with zero latency.
+            </span>
+            <span className="lg:hidden">
+              Real-time data processing for enterprise scale.<br />
+              Turn chaos into clarity with zero latency.
+            </span>
           </p>
         </div>
       </section>
@@ -236,7 +250,7 @@ const ProductDetail = () => {
             {product.capabilities.map((capability, index) => (
               <div
                 key={index}
-                className="bg-white border flex flex-col"
+                className="bg-white border flex flex-col capability-card"
                 style={{
                   width: '100%',
                   height: 'clamp(200px, 30vh, 232px)',
@@ -244,9 +258,26 @@ const ProductDetail = () => {
                   borderRadius: '16px',
                   borderWidth: '1px',
                   borderColor: '#E2E8F0',
-                  borderStyle: 'solid'
+                  borderStyle: 'solid',
+                  boxSizing: 'border-box',
+                  overflow: 'hidden'
                 }}
               >
+                <style>{`
+                  @media (max-width: 767px) {
+                    .capability-card {
+                      padding: 16px !important;
+                      min-height: 180px !important;
+                      height: auto !important;
+                    }
+                  }
+                  @media (min-width: 1024px) {
+                    .capability-card {
+                      padding: 32px !important;
+                      height: 232px !important;
+                    }
+                  }
+                `}</style>
                 {/* Icon - Top Left */}
                 <div style={{ marginBottom: '4px', width: '24px', height: '24px' }}>
                   <img 
@@ -262,7 +293,7 @@ const ProductDetail = () => {
 
                 {/* Title */}
                 <h3 
-                  className="font-bold"
+                  className="font-bold capability-title"
                   style={{ 
                     color: '#000000', 
                     fontSize: '24px', 
@@ -275,7 +306,7 @@ const ProductDetail = () => {
 
                 {/* Subtitle */}
                 <div 
-                  className="uppercase tracking-wider mt-auto"
+                  className="uppercase tracking-wider mt-auto capability-subtitle"
                   style={{ 
                     color: '#64748B', 
                     fontWeight: 500, 
@@ -284,6 +315,26 @@ const ProductDetail = () => {
                 >
                   {capability.subtitle}
                 </div>
+                <style>{`
+                  @media (max-width: 767px) {
+                    .capability-title {
+                      font-size: 18px !important;
+                      line-height: 1.2 !important;
+                    }
+                    .capability-subtitle {
+                      font-size: 14px !important;
+                      line-height: 1.3 !important;
+                    }
+                  }
+                  @media (min-width: 1024px) {
+                    .capability-title {
+                      font-size: 24px !important;
+                    }
+                    .capability-subtitle {
+                      font-size: 18px !important;
+                    }
+                  }
+                `}</style>
               </div>
             ))}
           </div>

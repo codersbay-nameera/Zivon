@@ -22,16 +22,28 @@ const Company = () => {
       <section 
         className="relative mx-auto"
         style={{ 
-          width: '1440px',
-          height: '596px',
-          paddingTop: '49px',
-          paddingRight: '60px',
-          paddingBottom: '49px',
-          paddingLeft: '60px',
-          gap: '10px',
-          maxWidth: '100%'
+          width: '100%',
+          maxWidth: '1440px',
+          height: 'clamp(300px, 50vh, 596px)',
+          paddingTop: 'clamp(24px, 4vw, 49px)',
+          paddingRight: 'clamp(16px, 4vw, 60px)',
+          paddingBottom: 'clamp(24px, 4vw, 49px)',
+          paddingLeft: 'clamp(16px, 4vw, 60px)',
+          gap: '10px'
         }}
       >
+        <style>{`
+          @media (min-width: 1024px) {
+            .relative.mx-auto {
+              width: 1440px !important;
+              height: 596px !important;
+              padding-top: 49px !important;
+              padding-right: 60px !important;
+              padding-bottom: 49px !important;
+              padding-left: 60px !important;
+            }
+          }
+        `}</style>
         {/* Background Image */}
         <div 
           className="absolute inset-0 w-full h-full"
@@ -98,16 +110,22 @@ const Company = () => {
                 style={{ 
                   color: '#64748B', 
                   fontWeight: 400, 
-                  whiteSpace: 'pre-line',
                   fontSize: '18px',
                   lineHeight: '1.6'
                 }}
               >
-                We believe in technology that empowers humanity. Our{'\n'}
-                mission is to create tools that are intuitive, powerful,{'\n'}
-                and accessible to everyone, everywhere. We don't just write{'\n'}
-                code; we craft experiences that bridge the gap between{'\n'}
-                complex problems and simple solutions.
+                {/* Desktop view - original formatting */}
+                <span className="hidden lg:inline" style={{ whiteSpace: 'pre-line' }}>
+                  We believe in technology that empowers humanity. Our{'\n'}
+                  mission is to create tools that are intuitive, powerful,{'\n'}
+                  and accessible to everyone, everywhere. We don't just write{'\n'}
+                  code; we craft experiences that bridge the gap between{'\n'}
+                  complex problems and simple solutions.
+                </span>
+                {/* Mobile view - better line breaks */}
+                <span className="lg:hidden" style={{ whiteSpace: 'normal' }}>
+                  We believe in technology that empowers humanity. Our mission is to create tools that are intuitive, powerful, and accessible to everyone, everywhere. We don't just write code; we craft experiences that bridge the gap between complex problems and simple solutions.
+                </span>
               </p>
             </div>
 
@@ -587,18 +605,34 @@ const Company = () => {
             `}</style>
             {/* Headquarters Badge - Bottom Left */}
             <div 
-              className="absolute bottom-4 sm:bottom-6 lg:bottom-8 left-4 sm:left-6 lg:left-8 bg-white border flex items-center justify-between"
+              className="absolute bottom-4 sm:bottom-6 lg:bottom-8 left-4 sm:left-6 lg:left-8 bg-white border flex items-center justify-between headquarters-badge"
               style={{
-                width: '353px',
-                height: '96px',
+                width: 'calc(100% - 32px)',
+                maxWidth: '320px',
+                height: '80px',
                 gap: '41px',
-                padding: '24px',
+                padding: '20px',
                 borderRadius: '12px',
                 borderWidth: '1px',
-                borderColor: '#E2E8F0',
-                maxWidth: '100%'
+                borderColor: '#E2E8F0'
               }}
             >
+              <style>{`
+                @media (max-width: 767px) {
+                  .headquarters-badge {
+                    width: calc(100% - 32px) !important;
+                    max-width: calc(100% - 32px) !important;
+                    left: 16px !important;
+                    right: 16px !important;
+                  }
+                }
+                @media (min-width: 1024px) {
+                  .headquarters-badge {
+                    width: 320px !important;
+                    max-width: 320px !important;
+                  }
+                }
+              `}</style>
               <div className="flex flex-col">
                 <div 
                   className="text-xs uppercase tracking-wider mb-1"

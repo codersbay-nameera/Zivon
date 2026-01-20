@@ -42,7 +42,14 @@ const Cloud = () => {
           className="text-base sm:text-lg lg:text-xl max-w-3xl mb-8 sm:mb-10 lg:mb-12 leading-relaxed"
           style={{ color: '#64748B', fontWeight: 400 }}
         >
-          Propelling enterprise scale through resilient<br></br> architecture, automated operations, and zero-trust <br></br>security governance.
+          <span className="hidden lg:inline">
+            Propelling enterprise scale through resilient<br></br> architecture, automated operations, and zero-trust <br></br>security governance.
+          </span>
+          <span className="lg:hidden">
+            Propelling enterprise scale through resilient<br />
+            architecture, automated operations, and<br />
+            zero-trust security governance.
+          </span>
         </p>
 
         {/* Image */}
@@ -85,7 +92,7 @@ const Cloud = () => {
       {/* Services Grid Section */}
       <section className="w-full bg-white">
         <div className="mx-auto pt-0 sm:pt-2 lg:pt-4 xl:pt-6 pb-12 sm:pb-16 lg:pb-20 xl:pb-24" style={{ maxWidth: '1440px', width: '100%', paddingLeft: 'clamp(16px, 4vw, 60px)', paddingRight: 'clamp(16px, 4vw, 60px)' }}>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-0" style={{ width: '100%', marginLeft: 0, marginRight: 0, paddingLeft: 0, paddingRight: 0 }}>
             {[
               {
                 index: "01",
@@ -118,15 +125,44 @@ const Cloud = () => {
             ].map((service, index) => (
               <div
                 key={index}
-                className={`relative p-6 sm:p-8 md:p-10 lg:p-12 ${
+                className={`relative cloud-service-card ${
                   index % 2 === 0 ? 'md:border-r md:border-gray-200' : ''
                 } ${
                   index < 2 ? 'border-b border-gray-200' : ''
                 }`}
                 style={{
-                  borderColor: '#E2E8F0'
+                  borderColor: '#E2E8F0',
+                  width: '100%',
+                  padding: 'clamp(24px, 3vw, 48px)'
                 }}
               >
+                <style>{`
+                  /* Mobile: All cards align with heading */
+                  @media (max-width: 767px) {
+                    .cloud-service-card {
+                      padding-left: 0 !important;
+                      padding-right: 0 !important;
+                      padding-top: clamp(24px, 3vw, 32px) !important;
+                      padding-bottom: clamp(24px, 3vw, 32px) !important;
+                      margin-left: 0 !important;
+                      margin-right: 0 !important;
+                    }
+                  }
+                  /* Desktop: Maintain original padding */
+                  @media (min-width: 1024px) {
+                    .cloud-service-card {
+                      padding: 48px !important;
+                    }
+                    .cloud-service-card:nth-child(odd) {
+                      padding-left: 0 !important;
+                      padding-right: 48px !important;
+                    }
+                    .cloud-service-card:nth-child(even) {
+                      padding-left: 48px !important;
+                      padding-right: 0 !important;
+                    }
+                  }
+                `}</style>
                 {/* Icon */}
                 <div
                   className="mb-4 sm:mb-6 md:mb-8"
@@ -326,7 +362,14 @@ const Cloud = () => {
               className="mb-6 sm:mb-8 leading-relaxed"
               style={{ color: '#64748B', fontWeight: 400, fontSize: '18px' }}
             >
-              Unlock the full potential of enterprise cloud through a<br></br> dedicated technical consultation.
+              <span className="hidden lg:inline">
+                Unlock the full potential of enterprise cloud through a<br></br> dedicated technical consultation.
+              </span>
+              <span className="lg:hidden">
+                Unlock the full potential of enterprise<br />
+                cloud through a dedicated technical<br />
+                consultation.
+              </span>
             </p>
 
             {/* CTA Button */}

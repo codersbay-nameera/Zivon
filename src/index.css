@@ -66,3 +66,25 @@
     -webkit-font-smoothing: antialiased;
   }
 }
+
+/* Responsive Layout Fixes - Mobile & Tablet Only */
+/* Desktop (≥1024px) remains completely unchanged */
+
+@media (max-width: 1023px) {
+  /* Prevent horizontal overflow */
+  body {
+    overflow-x: hidden;
+  }
+  
+  /* Responsive images - preserve aspect ratio */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Prevent text overflow */
+  p, span, div {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+}

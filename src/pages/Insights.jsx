@@ -89,7 +89,13 @@ const Insights = () => {
               maxWidth: '1320px'
             }}
           >
-            Exploring the intersection of theoretical physics and high-frequency <br></br>finance in the modern digital era.
+            <span className="hidden lg:inline">
+              Exploring the intersection of theoretical physics and high-frequency <br></br>finance in the modern digital era.
+            </span>
+            <span className="lg:hidden">
+              Exploring the intersection of theoretical physics<br />
+              and high-frequency finance in the modern digital era.
+            </span>
           </p>
 
           {/* Meta Info Row */}
@@ -121,12 +127,31 @@ const Insights = () => {
         ></div>
         
         <div className="mx-auto lg:!pl-[60px] lg:!pr-[60px]" style={{ maxWidth: '1440px', width: '100%', paddingLeft: 'clamp(16px, 4vw, 60px)', paddingRight: 'clamp(16px, 4vw, 60px)', paddingBottom: '16px' }}>
-          <div className="flex flex-wrap lg:flex-wrap gap-2 sm:gap-3 lg:gap-10">
+          <div className="flex flex-nowrap lg:flex-wrap gap-2 sm:gap-3 lg:gap-10 category-nav-container">
+            <style>{`
+              @media (max-width: 1023px) {
+                .category-nav-container {
+                  gap: 8px !important;
+                  overflow-x: visible !important;
+                }
+                .category-nav-container button span {
+                  font-size: 16px !important;
+                }
+              }
+              @media (min-width: 1024px) {
+                .category-nav-container {
+                  gap: 40px !important;
+                }
+                .category-nav-container button span {
+                  font-size: 24px !important;
+                }
+              }
+            `}</style>
             {['All Stories', 'Engineering', 'AI & Data', 'Strategy'].map((category) => (
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
-                className="relative transition-colors"
+                className="relative transition-colors flex-shrink-0"
                 style={{
                   backgroundColor: 'transparent',
                   border: 'none',
@@ -440,7 +465,12 @@ const Insights = () => {
                   fontSize: '48px'
                 }}
               >
-                Essential Insights,<br />weekly.
+                <span className="hidden lg:inline">
+                  Essential Insights,<br />weekly.
+                </span>
+                <span className="lg:hidden">
+                  Essential Insights, weekly.
+                </span>
               </h2>
 
               {/* Supporting Text */}
