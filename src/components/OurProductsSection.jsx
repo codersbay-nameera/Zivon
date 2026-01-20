@@ -87,7 +87,7 @@ const OurProductsSection = () => {
               key={index}
               href={`/product/${product.slug}`}
               onClick={(e) => handleProductClick(e, product.slug)}
-              className="flex-shrink-0 w-[440px] sm:w-[460px] lg:w-[448px] flex flex-col cursor-pointer"
+              className="group flex-shrink-0 w-[440px] sm:w-[460px] lg:w-[448px] flex flex-col cursor-pointer"
             >
               {/* Image Container with Category Badge */}
               <div className="relative mb-4 sm:mb-5">
@@ -115,7 +115,7 @@ const OurProductsSection = () => {
 
               {/* Product Title */}
               <h3 
-                className="text-xl sm:text-2xl font-semibold text-primary mb-3 sm:mb-4 tracking-[-0.02em] hover:underline transition-all duration-200"
+                className="text-xl sm:text-2xl font-semibold text-primary mb-3 sm:mb-4 tracking-[-0.02em] group-hover:underline transition-all duration-200"
                 style={{ textDecorationThickness: '1px', textUnderlineOffset: '4px', textDecorationColor: '#000000' }}
               >
                 {product.title}

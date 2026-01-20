@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import InsightBanner from '../assets/latesInsight/InsightBanner.jpg';
 import MigratingImage from '../assets/latesInsight/Migrating.jpg';
 import TheMoralImage from '../assets/latesInsight/TheMoral.jpg';
@@ -8,10 +8,38 @@ import MailIcon from '../assets/Mail.svg';
 
 const Insights = () => {
   const [activeCategory, setActiveCategory] = useState('All Stories');
+  const [underlineStyle, setUnderlineStyle] = useState({ left: 0, width: 0 });
+  const categoryRefs = useRef({});
+  const containerRef = useRef(null);
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
   }, []);
+
+  useEffect(() => {
+    // Update underline position when active category changes
+    const updateUnderline = () => {
+      const activeButton = categoryRefs.current[activeCategory];
+      const container = containerRef.current;
+      
+      if (activeButton && container) {
+        const containerRect = container.getBoundingClientRect();
+        const buttonRect = activeButton.getBoundingClientRect();
+        
+        setUnderlineStyle({
+          left: buttonRect.left - containerRect.left,
+          width: buttonRect.width
+        });
+      }
+    };
+
+    // Initial position
+    updateUnderline();
+
+    // Update on resize
+    window.addEventListener('resize', updateUnderline);
+    return () => window.removeEventListener('resize', updateUnderline);
+  }, [activeCategory]);
 
   return (
     <main className="w-full bg-white">
@@ -127,7 +155,10 @@ const Insights = () => {
         ></div>
         
         <div className="mx-auto lg:!pl-[60px] lg:!pr-[60px]" style={{ maxWidth: '1440px', width: '100%', paddingLeft: 'clamp(16px, 4vw, 60px)', paddingRight: 'clamp(16px, 4vw, 60px)', paddingBottom: '16px' }}>
-          <div className="flex flex-nowrap lg:flex-wrap gap-2 sm:gap-3 lg:gap-10 category-nav-container">
+          <div 
+            ref={containerRef}
+            className="relative flex flex-nowrap lg:flex-wrap gap-2 sm:gap-3 lg:gap-10 category-nav-container"
+          >
             <style>{`
               @media (max-width: 1023px) {
                 .category-nav-container {
@@ -150,6 +181,9 @@ const Insights = () => {
             {['All Stories', 'Engineering', 'AI & Data', 'Strategy'].map((category) => (
               <button
                 key={category}
+                ref={(el) => {
+                  if (el) categoryRefs.current[category] = el;
+                }}
                 onClick={() => setActiveCategory(category)}
                 className="relative transition-colors flex-shrink-0"
                 style={{
@@ -171,20 +205,20 @@ const Insights = () => {
                 >
                   {category}
                 </span>
-                {/* Active Underline */}
-                {activeCategory === category && (
-                  <div
-                    className="absolute left-0 right-0"
-                    style={{
-                      height: '6px',
-                      backgroundColor: '#020617',
-                      width: '100%',
-                      bottom: '-16px'
-                    }}
-                  ></div>
-                )}
               </button>
             ))}
+            {/* Animated Underline */}
+            <div
+              className="absolute"
+              style={{
+                height: '6px',
+                backgroundColor: '#020617',
+                bottom: '-16px',
+                left: `${underlineStyle.left}px`,
+                width: `${underlineStyle.width}px`,
+                transition: 'left 0.3s ease, width 0.3s ease'
+              }}
+            ></div>
           </div>
         </div>
         

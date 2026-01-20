@@ -1,15 +1,23 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FiArrowRight } from "react-icons/fi";
 import CloudBanner from '../assets/cloud/CloudBanner.svg';
 import CloudDevelopment from '../assets/cloud/Cloud Development.svg';
 import GitHub from '../assets/cloud/GitHub.svg';
 import Icon3 from '../assets/cloud/3.svg';
 import Icon4 from '../assets/cloud/4.svg';
+import ConsultationModal from '../components/ConsultationModal';
 
 const Cloud = () => {
+  const [showConsultationModal, setShowConsultationModal] = useState(false);
+
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
   }, []);
+
+  const handleConsultationSubmit = (data) => {
+    console.log('Consultation submitted:', data);
+    // Handle form submission (API call, etc.)
+  };
 
   return (
     <main className="w-full bg-white">
@@ -374,11 +382,13 @@ const Cloud = () => {
 
             {/* CTA Button */}
             <button
+              onClick={() => setShowConsultationModal(true)}
               className="w-full flex items-center justify-center gap-3 py-4 sm:py-5 font-semibold text-base sm:text-lg transition-all duration-200 group"
               style={{ 
                 backgroundColor: '#020617',
                 color: '#FFFFFF',
-                borderRadius: '8px'
+                borderRadius: '8px',
+                cursor: 'pointer'
               }}
             >
               <span>Consult with Our Solutions Architects</span>
@@ -390,6 +400,13 @@ const Cloud = () => {
           </div>
         </div>
       </section>
+
+      {/* Consultation Modal */}
+      <ConsultationModal
+        isOpen={showConsultationModal}
+        onClose={() => setShowConsultationModal(false)}
+        onSubmit={handleConsultationSubmit}
+      />
     </main>
   );
 };

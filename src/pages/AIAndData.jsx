@@ -1,12 +1,20 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FiArrowRight } from "react-icons/fi";
 import MachineLearningIcon from '../assets/MachineLearning.svg';
 import BigDataIcon from '../assets/BigDataAnalytics.svg';
+import ConsultationModal from '../components/ConsultationModal';
 
 const AIAndData = () => {
+  const [showConsultationModal, setShowConsultationModal] = useState(false);
+
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
   }, []);
+
+  const handleConsultationSubmit = (data) => {
+    console.log('Consultation submitted:', data);
+    // Handle submission logic here
+  };
 
   return (
     <main className="w-full bg-white">
@@ -294,12 +302,14 @@ const AIAndData = () => {
 
           {/* CTA Button */}
           <button
+            onClick={() => setShowConsultationModal(true)}
             className="w-full py-4 sm:py-5 px-6 sm:px-8 font-medium text-sm sm:text-base md:text-lg transition-all duration-200 flex items-center justify-center gap-3 group"
             style={{ 
               backgroundColor: '#FFFFFF',
               color: '#000000',
               borderRadius: '0',
-              border: 'none'
+              border: 'none',
+              cursor: 'pointer'
             }}
           >
             <span className="group-hover:underline">Consult with an Expert</span>
@@ -310,6 +320,13 @@ const AIAndData = () => {
           </button>
         </div>
       </section>
+
+      {/* Consultation Modal */}
+      <ConsultationModal
+        isOpen={showConsultationModal}
+        onClose={() => setShowConsultationModal(false)}
+        onSubmit={handleConsultationSubmit}
+      />
     </main>
   );
 };

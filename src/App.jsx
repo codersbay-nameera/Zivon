@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import CookieBanner from './components/CookieBanner';
 import Home from './pages/Home';
 import Capabilities from './pages/Capabilities';
 import Products from './pages/Products';
@@ -11,11 +12,13 @@ import Cloud from './pages/Cloud';
 import AIAndData from './pages/AIAndData';
 import Company from './pages/Company';
 import ProductDetail from './pages/ProductDetail';
+import ConsultExpert from './pages/ConsultExpert';
 import './index.css';
 
 function AppContent() {
   const location = useLocation();
-  const showFooter = location.pathname !== '/company' && !location.pathname.startsWith('/product/');
+  const showFooter = location.pathname !== '/company' && !location.pathname.startsWith('/product/') && location.pathname !== '/consult-expert';
+  const showHeader = location.pathname !== '/consult-expert';
 
   // Scroll to top on route change
   useEffect(() => {
@@ -24,7 +27,7 @@ function AppContent() {
 
   return (
     <div className="min-h-screen bg-white flex flex-col">
-      <Header />
+      {showHeader && <Header />}
       <main className="flex-grow">
         <Routes>
           <Route path="/" element={<Home />} />
@@ -36,9 +39,12 @@ function AppContent() {
           <Route path="/ai-and-data" element={<AIAndData />} />
           <Route path="/company" element={<Company />} />
           <Route path="/product/:productId" element={<ProductDetail />} />
+          <Route path="/consult-expert" element={<ConsultExpert />} />
         </Routes>
       </main>
       {showFooter && <Footer />}
+      {/* Cookie Consent Banner - Global across all routes */}
+      <CookieBanner />
     </div>
   );
 }
