@@ -707,11 +707,13 @@ const ProductDetail = () => {
 
                 {/* Bottom CTA */}
                 <div 
-                  className="font-medium mt-auto"
+                  className="font-medium mt-auto hover:underline transition-all duration-200 cursor-pointer"
                   style={{ 
                     color: '#020617', 
                     fontWeight: 600,
-                    fontSize: 'clamp(12px, 1.5vw, 16px)'
+                    fontSize: 'clamp(12px, 1.5vw, 16px)',
+                    textDecorationThickness: '1px',
+                    textUnderlineOffset: '4px'
                   }}
                 >
                   View Case Studies

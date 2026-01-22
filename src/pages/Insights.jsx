@@ -162,8 +162,12 @@ const Insights = () => {
             <style>{`
               @media (max-width: 1023px) {
                 .category-nav-container {
-                  gap: 8px !important;
+                  gap: 16px !important;
                   overflow-x: visible !important;
+                  justify-content: flex-start !important;
+                }
+                .category-nav-container button {
+                  flex: 0 0 auto !important;
                 }
                 .category-nav-container button span {
                   font-size: 16px !important;
@@ -380,7 +384,8 @@ const Insights = () => {
                   maxWidth: '90%'
                 }}
               >
-                <span style={{ whiteSpace: 'nowrap' }}>The Moral Landscape of</span><br />Automation
+                <span className="lg:hidden"><span style={{ whiteSpace: 'nowrap' }}>The Moral Landscape</span><br />of Automation</span>
+                <span className="hidden lg:inline"><span style={{ whiteSpace: 'nowrap' }}>The Moral Landscape of</span><br />Automation</span>
               </h2>
 
               {/* Description */}

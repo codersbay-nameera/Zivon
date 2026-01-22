@@ -383,7 +383,7 @@ const Cloud = () => {
             {/* CTA Button */}
             <button
               onClick={() => setShowConsultationModal(true)}
-              className="w-full flex items-center justify-center gap-3 py-4 sm:py-5 font-semibold text-base sm:text-lg transition-all duration-200 group"
+              className="w-full flex items-center justify-center gap-3 py-4 sm:py-5 font-semibold text-base sm:text-lg transition-all duration-200 group mobile-cta-button"
               style={{ 
                 backgroundColor: '#020617',
                 color: '#FFFFFF',
@@ -391,11 +391,38 @@ const Cloud = () => {
                 cursor: 'pointer'
               }}
             >
-              <span>Consult with Our Solutions Architects</span>
+              <span className="mobile-cta-text">Consult with Our Solutions Architects</span>
               <FiArrowRight 
-                className="w-5 h-5 transition-all duration-200 opacity-0 group-hover:opacity-100" 
+                className="w-5 h-5 transition-all duration-200 opacity-0 group-hover:opacity-100 mobile-cta-icon" 
                 style={{ transform: 'rotate(-45deg)' }}
               />
+              <style>{`
+                @media (max-width: 767px) {
+                  .mobile-cta-button {
+                    display: flex !important;
+                    align-items: center !important;
+                    justify-content: center !important;
+                    text-align: center !important;
+                    position: relative !important;
+                    padding-left: 0 !important;
+                    padding-right: 0 !important;
+                  }
+                  .mobile-cta-text {
+                    text-align: center !important;
+                    margin: 0 auto !important;
+                    display: block !important;
+                    width: 100% !important;
+                    position: relative !important;
+                    left: 0 !important;
+                    right: 0 !important;
+                  }
+                  .mobile-cta-icon {
+                    position: absolute !important;
+                    right: 16px !important;
+                    opacity: 0 !important;
+                  }
+                }
+              `}</style>
             </button>
           </div>
         </div>
