@@ -694,7 +694,7 @@ const ProductDetail = () => {
 
                 {/* Description */}
                 <p 
-                  className="leading-relaxed flex-grow"
+                  className="leading-relaxed flex-grow industry-description"
                   style={{ 
                     color: '#475569', 
                     fontWeight: 400,
@@ -707,7 +707,7 @@ const ProductDetail = () => {
 
                 {/* Bottom CTA */}
                 <div 
-                  className="font-medium mt-auto hover:underline transition-all duration-200 cursor-pointer"
+                  className="font-medium mt-auto hover:underline transition-all duration-200 cursor-pointer view-case-studies-btn"
                   style={{ 
                     color: '#020617', 
                     fontWeight: 600,
@@ -718,6 +718,24 @@ const ProductDetail = () => {
                 >
                   View Case Studies
                 </div>
+                <style>{`
+                  @media (max-width: 1023px) {
+                    .industry-description {
+                      font-size: 16px !important;
+                    }
+                    .view-case-studies-btn {
+                      font-size: 16px !important;
+                    }
+                  }
+                  @media (min-width: 1024px) {
+                    .industry-description {
+                      font-size: 18px !important;
+                    }
+                    .view-case-studies-btn {
+                      font-size: 16px !important;
+                    }
+                  }
+                `}</style>
               </div>
             ))}
             </div>
